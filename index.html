@@ -39,12 +39,12 @@
     .nav button.active .ico{background:#d2f0eb}
     .sidehint{margin-top:24px;padding:14px;border:1px solid var(--line);border-radius:18px;background:#fff;color:var(--muted);font-size:.84rem}
     main{padding:24px 36px 70px;max-width:1220px;width:100%;margin:0 auto}
-    .topbar{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:start;margin-bottom:20px}
+    .topbar{display:grid;grid-template-columns:1fr;gap:10px;align-items:start;margin-bottom:20px}
     .titlebox{background:rgba(255,255,255,.72);border:1px solid rgba(229,231,235,.85);border-radius:26px;padding:22px 24px;box-shadow:0 12px 35px rgba(16,24,40,.05)}
     .eyebrow{font-size:.76rem;text-transform:uppercase;letter-spacing:.16em;font-weight:850;color:var(--brand);margin-bottom:8px}
-    h1{margin:0;font-size:clamp(2rem,4vw,4rem);line-height:1.02;letter-spacing:-.055em}
-    .lead{margin:12px 0 0;max-width:760px;color:#344054;font-size:1.04rem}
-    .facts{min-width:260px;display:grid;grid-template-columns:1fr;gap:8px;opacity:.78;font-size:.82rem}
+    h1{margin:0;font-size:clamp(1.7rem,3vw,2.8rem);line-height:1.02;letter-spacing:-.055em;white-space:nowrap}
+    .lead{margin:12px 0 0;max-width:760px;color:#344054;font-size:1.04rem;text-align:justify}
+    .facts{min-width:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;opacity:.78;font-size:.82rem}
     .fact{background:rgba(255,255,255,.56);border:1px solid rgba(229,231,235,.8);border-radius:15px;padding:9px 11px;color:#475467}
     .fact strong{display:block;color:#111827;font-size:.84rem}.fact span{display:block;line-height:1.25}
     .section{display:none;animation:fade .22s ease}.section.active{display:block}@keyframes fade{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
@@ -77,15 +77,14 @@
         <div><b>Praktikumsbericht</b><small>BFSL · WebApp</small></div>
       </div>
       <nav class="nav" id="sideNav" aria-label="Hauptnavigation"></nav>
-      <div class="sidehint">Die Kapitel können frei gewählt werden. Das Puzzle bildet den Hauptteil: Jedes Teil öffnet ein Entwicklungsziel mit Handlung, Beweisen und Reflexion.</div>
+      
     </aside>
 
     <main>
       <header class="topbar">
         <div class="titlebox">
-          <div class="eyebrow">Praxis · Reflexion · Entwicklung</div>
           <h1>Praktikumsbericht Despoina Papadopoulou</h1>
-          <p class="lead">Eine klickbare WebApp zur Entwicklung meiner professionellen Handlungskompetenz im Informatikunterricht: Heterogenität wahrnehmen, differenzieren, coachen, Peer-Learning ermöglichen und Selbstwirksamkeit stärken.</p>
+          <p class="lead"><em>25H-BFS-2 Dipl. Berufsfachschullehrer:in im Hauptberuf</em><br><em>Zuständiger Dozent: Gerhard Friedl</em><br>Diese Website soll die Entwicklung meiner Handlungskompetenz als Lehrperson im Rahmen meines Praktikums im 2. Studienjahr veranschaulichen.</p>
         </div>
         <div class="facts" aria-label="Eckdaten">
           <div class="fact"><strong>Arbeitsstelle</strong><span>Fach- und Wirtschaftsmittelschulzentrum Luzern</span></div>
@@ -98,16 +97,14 @@
       <section id="entwicklungsziele" class="section active">
         <div class="sectionhead">
           <div>
-            <span class="badge">🧩 Hauptteil</span>
-            <h2>Entwicklungsziele als Puzzle</h2>
-            <p>Die Reihenfolge ist nicht vorgegeben: Jedes Puzzleteil steht für einen Teil meiner Lernplanung und zeigt Ziel, Vorgehen, Handlungskompetenz und passende Beweisstücke.</p>
+            <h2>Meine Entwicklungsziele</h2>
           </div>
         </div>
         <div class="puzzleboard"><div class="puzzle" id="puzzleGrid"></div></div>
       </section>
 
       <section id="galerie" class="section">
-        <div class="sectionhead"><div><span class="badge">🗂️ Beweise</span><h2>Galerie der Beweisstücke</h2><p>Die Beweisstücke sind als Platzhalter vorbereitet und können später durch echte Dateien im Repository-Ordner <strong>beweise</strong> ersetzt werden.</p></div></div>
+        <div class="sectionhead"><div><h2>Inhaltsgalerie</h2><p>Die Beweisstücke sind als Platzhalter vorbereitet und können später durch echte Dateien im Repository-Ordner <strong>beweise</strong> ersetzt werden.</p></div></div>
         <div class="grid">
           <div class="card span-12"><div class="list" id="evidenceList"></div></div>
           <div class="card span-6"><h3>Beispiel-Unterrichtsinhalt</h3><p>Excel-Doppellektion zu Funktionen: SUMME, MITTELWERT, MIN, MAX, ANZAHL, ANZAHL2, WENN sowie relative und absolute Bezüge.</p><div class="tags"><span class="tag good">praxisnah</span><span class="tag">digital</span><span class="tag">differenziert</span></div></div>
@@ -116,38 +113,38 @@
       </section>
 
       <section id="lerngefaesse" class="section">
-        <div class="sectionhead"><div><span class="badge">🧭 Ressourcen</span><h2>Lerngefässe</h2><p>Diese Gefässe nutze ich, um meine Ressourcen zu erweitern, Rückmeldungen einzuholen und meine Praxis weiterzuentwickeln.</p></div></div>
+        <div class="sectionhead"><div><h2>Lerngefässe</h2><p>Diese Gefässe habe ich genutzt, um meine Ressourcen zu erweitern, Rückmeldungen einzuholen und meine Praxis weiterzuentwickeln.</p></div></div>
         <div class="grid">
-          <div class="card span-4"><h3>🏫 Präsenzunterricht</h3><p>Erprobung der Methoden im realen Informatikunterricht; Beobachtung von Aktivierung, Methodenvielfalt und Coaching-Anteilen.</p></div>
-          <div class="card span-4"><h3>📚 Literaturrecherche</h3><p>Recherche zu Differenzierung, Coaching und selbstständigem Lernen im Informatikunterricht; Transfer in konkrete Materialien.</p></div>
-          <div class="card span-4"><h3>👥 Transfergruppe</h3><p>Regelmässige Besprechung der Entwicklungsziele, Rückmeldungen zu Methoden und Reflexion der Wirkung.</p></div>
-          <div class="card span-4"><h3>🪞 Supervision / Intervision</h3><p>Analyse herausfordernder Situationen, insbesondere Unterforderung, Überforderung und Rollenwechsel zur Coachin.</p></div>
-          <div class="card span-4"><h3>🎯 Mentorat</h3><p>Fokussierung der persönlichen Entwicklung und Prüfung, ob Ziele, Massnahmen und Beweise zusammenpassen.</p></div>
-          <div class="card span-4"><h3>👁️ Praxisbesuch</h3><p>Externe Beobachtung der Unterrichtsumsetzung mit Fokus auf Aktivierung, Differenzierung und Lernbegleitung.</p></div>
-          <div class="card span-12"><h3>🤝 Kolleginnen und Kollegen</h3><p>Austausch über erfolgreiche Differenzierungs- und Coaching-Methoden; Übernahme und Anpassung von praxistauglichen Ideen.</p></div>
+          <div class="card span-4"><h3>🏫 Präsenzunterricht</h3><p>Ich habe die Methoden direkt im realen Informatikunterricht erprobt. Dies war zentral, weil nur der reale Unterricht die Dynamik, Unvorhersehbarkeit und situativen Herausforderungen sichtbar macht.</p></div>
+          <div class="card span-4"><h3>📚 Literaturrecherche</h3><p>Während der wöchentlichen Ausbildungstage erhielt ich wertvolle Materialien und theoretische Impulse, die direkt in meine Unterrichtspraxis übertragbar waren. Besonders hilfreich waren Inhalte zu Gruppendynamik, Eisberg-Modell, Selbstwirksamkeitstheorie und Themenzentrierter Interaktion.</p></div>
+          <div class="card span-4"><h3>👥 Transfergruppe</h3><p>In meiner Transfergruppe „MilkyWay“ haben wir uns regelmässig zu unseren Entwicklungszielen ausgetauscht. Dabei erhielt ich wertvolle Inputs für meine eigene Unterrichtspraxis.</p></div>
+          <div class="card span-4"><h3>🪞 Supervision / Intervision</h3><p>In meiner Transfer- und Intervisionsgruppe „MilkyWay“ haben wir laufend herausfordernde Unterrichtssituationen analysiert. Im Fokus standen Unterforderung, Überforderung, Motivation und der Rollenwechsel hin zum Coach.</p></div>
+          <div class="card span-4"><h3>🎯 Mentorat</h3><p>Ich konnte vom Mentorat stark profitieren, weil es auf mich und meine Situation zugeschnitten war. Mein Mentor hat langjährige Erfahrung in derselben Funktion und gab mir konkrete Impulse für meine Unterrichtspraxis.</p></div>
+          <div class="card span-4"><h3>👁️ Praxisbesuch</h3><p>Ein Blick von aussen hat sich erneut als sehr wertvolle Ressource erwiesen. Durch die externe Beobachtung wurden Blindflecken sichtbar; der Fokus lag auf Aktivierung, Differenzierung und Lernbegleitung.</p></div>
+          <div class="card span-12"><h3>🤝 Kolleginnen und Kollegen</h3><p>Der tägliche Austausch mit Lehrpersonen aus dem Kollegium ist sehr wertvoll. Auch im Praktikum konnte ich dadurch dieselben Klassen aus unterschiedlichen Perspektiven betrachten und erfolgreiche Methoden direkt prüfen, anpassen und umsetzen.</p></div>
         </div>
       </section>
 
       <section id="standort" class="section">
-        <div class="sectionhead"><div><span class="badge">📍 Reflexion</span><h2>Standortbestimmung</h2><p>Die Standortbestimmung orientiert sich an meinen Entwicklungszielen und meiner Handlungskompetenz. Sie zeigt Stärken, Entwicklungspotenziale und nächste Schritte.</p></div></div>
+        <div class="sectionhead"><div><h2>Standortbestimmung</h2><p>Die Standortbestimmung orientiert sich an meinen Entwicklungszielen und meiner Handlungskompetenz. Sie zeigt Stärken, Entwicklungspotenziale und nächste Schritte.</p></div></div>
         <table>
-          <thead><tr><th>Bereich</th><th>Stärke</th><th>Entwicklungspotenzial</th><th>Nächster Schritt</th></tr></thead>
+          <thead><tr><th>Bereich</th><th>IST-Zustand</th><th>Entwicklungspotenzial</th><th>Nächste Schritte</th></tr></thead>
           <tbody>
-            <tr><td>Methodenvielfalt</td><td>Ich plane Einstiege bewusster und abwechslungsreicher.</td><td>Einstiege noch stärker diagnostisch nutzen.</td><td>Quiz-Resultate zur Aufgabenwahl verwenden.</td></tr>
-            <tr><td>Lernstile</td><td>Ich kombiniere visuelle, auditive und handlungsorientierte Zugänge.</td><td>Wirkung der Zugänge systematischer vergleichen.</td><td>Kurzumfragen konsequent auswerten.</td></tr>
-            <tr><td>Differenzierung</td><td>Ich strukturiere Aufgaben nach einfach, mittel und anspruchsvoll.</td><td>Die Wahl der passenden Stufe muss noch transparenter werden.</td><td>Entscheidungshilfe für Niveaustufen ergänzen.</td></tr>
-            <tr><td>Coaching</td><td>Ich beobachte bewusster und greife weniger schnell erklärend ein.</td><td>Coaching-Fragen routinierter einsetzen.</td><td>Persönliche Coaching-Fragen-Karte verwenden.</td></tr>
-            <tr><td>Peer-Learning</td><td>Schnelle Lernende erhalten sinnvolle Wahlmöglichkeiten.</td><td>Tutor-Rollen klarer strukturieren.</td><td>Kurzleitfaden für Tutorinnen und Tutoren erstellen.</td></tr>
-            <tr><td>Selbstwirksamkeit</td><td>Reflexionsbögen machen Fortschritte sichtbar.</td><td>Rückmeldungen stärker in Folgeplanung einbauen.</td><td>Monatsauswertung mit konkreten Anpassungen dokumentieren.</td></tr>
+            <tr><td>Methodenvielfalt</td><td>Ich kann Einstiege bewusster und abwechslungsreicher planen.</td><td>Einstiege noch stärker diagnostisch nutzen</td><td>Quiz-Resultate zur Aufgabenwahl verwenden</td></tr>
+            <tr><td>Lernstile</td><td>Ich kann visuelle, auditive und handlungsorientierte Zugänge kombinieren.</td><td>Wirkung der Zugänge systematischer vergleichen</td><td>Kurzumfragen konsequent auswerten</td></tr>
+            <tr><td>Differenzierung</td><td>Ich kann Aufgaben nach einfach, mittel und anspruchsvoll strukturieren.</td><td>Die Wahl der passenden Stufe muss noch transparenter werden</td><td>Entscheidungshilfe für Niveaustufen ergänzen</td></tr>
+            <tr><td>Coaching</td><td>Ich kann Lernprozesse bewusster beobachten und greife weniger schnell mit Erklärungen ein.</td><td>Coaching-Fragen routinierter einsetzen</td><td>Persönliche Coaching-Fragen-Karte verwenden</td></tr>
+            <tr><td>Peer-Learning</td><td>Ich kann schnellen Lernenden sinnvolle Wahlmöglichkeiten anbieten.</td><td>Tutor-Rollen klarer strukturieren</td><td>Kurzleitfaden für Tutorinnen und Tutoren erstellen</td></tr>
+            <tr><td>Selbstwirksamkeit</td><td>Ich biete Reflexionsbögen, um Fortschritte sichtbar zu machen.</td><td>Rückmeldungen stärker in Folgeplanung einbauen</td><td>Monatsauswertung mit konkreten Anpassungen dokumentieren</td></tr>
           </tbody>
         </table>
       </section>
 
       <section id="feedback" class="section">
-        <div class="sectionhead"><div><span class="badge">✉️ Rückmeldung</span><h2>Feedback geben</h2><p>Das Formular ist für GitHub Pages vorbereitet. Es nutzt FormSubmit, damit auch eine statische HTML-Seite eine E-Mail auslösen kann.</p></div></div>
+        <div class="sectionhead"><div><h2>Feedback</h2><p>Das Formular ist für GitHub Pages vorbereitet. Es nutzt FormSubmit, damit auch eine statische HTML-Seite eine E-Mail auslösen kann.</p></div></div>
         <div class="grid">
           <div class="card span-7">
-            <form action="https://formsubmit.co/figaro.ashby@gmail.com" method="POST">
+            <form action="https://formsubmit.co/despina.papas@gmail.com" method="POST">
               <input type="hidden" name="_subject" value="Feedback zum Praktikumsbericht WebApp">
               <input type="hidden" name="_template" value="table">
               <input type="hidden" name="_captcha" value="false">
@@ -156,14 +153,13 @@
               <div class="field"><label for="rating">Gesamteindruck</label><select id="rating" name="Gesamteindruck"><option>Sehr überzeugend</option><option>Überzeugend</option><option>Teilweise überzeugend</option><option>Noch unklar</option></select></div>
               <div class="field"><label for="message">Rückmeldung</label><textarea id="message" name="Rueckmeldung" required placeholder="Was ist nachvollziehbar? Was ist stark? Was sollte ich noch präzisieren?"></textarea></div>
               <button class="submit" type="submit">Feedback per E-Mail senden</button>
-              <p class="fine">Beim ersten Versand verlangt FormSubmit normalerweise eine einmalige Aktivierung per E-Mail an die Zieladresse. Danach funktioniert das Formular ohne eigenes Backend.</p>
             </form>
           </div>
-          <div class="card span-5"><h3>Direkte Alternative</h3><p>Falls der Formular-Dienst blockiert wird, kann Feedback auch direkt per E-Mail geschickt werden.</p><div class="tags"><a class="tag good" href="mailto:figaro.ashby@gmail.com?subject=Feedback%20zum%20Praktikumsbericht">E-Mail öffnen</a></div></div>
+          <div class="card span-5"><h3>Direkte Alternative</h3><p>Falls der Formular-Dienst blockiert wird, kann Feedback auch direkt per E-Mail geschickt werden.</p><div class="tags"><a class="tag good" href="mailto:despina.papas@gmail.com?subject=Feedback%20zum%20Praktikumsbericht">E-Mail öffnen</a></div></div>
         </div>
       </section>
 
-      <footer class="footer">Diese Datei ist eine vollständige <code>index.html</code>. Für GitHub Pages ins Repository laden. Die Platzhalterlinks zu den Beweisstücken können später durch echte Dateien ersetzt werden.</footer>
+      <footer class="footer" style="display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap;"><span><strong>Hinweis:</strong> Der Code für diese WebApp wurde mithilfe von KI optimiert. Die verwendeten Icons sind KI-generiert.</span><span style="margin-left:auto;white-space:nowrap;"><em>Luzern, Mai 2026</em></span></footer>
     </main>
   </div>
 
@@ -172,21 +168,21 @@
       <div class="modaltop"><div><div class="eyebrow" id="modalNr"></div><h2 id="modalTitle"></h2></div><button class="close" onclick="closeModal()" aria-label="Schliessen">×</button></div>
       <p id="modalText"></p>
       <div class="modalgrid" id="modalBlocks"></div>
-      <div class="modalactions"><button class="btn primary" onclick="closeModal()">Zurück zum Puzzle</button><button class="btn" id="evidenceBtn">Passende Beweise öffnen</button></div>
+      <div class="modalactions"><button class="btn primary" onclick="closeModal()">Zu den Entwicklungszielen</button><button class="btn" id="evidenceBtn">Zur Inhaltsgalerie</button></div>
     </div>
   </dialog>
 
   <script>
     const navItems = [
-      {id:'entwicklungsziele', label:'Entwicklungsziele', icon:'🧩'},
-      {id:'galerie', label:'Galerie', icon:'🗂️'},
+      {id:'entwicklungsziele', label:'Entwicklungsziele', icon:'🎯'},
+      {id:'galerie', label:'Inhaltsgalerie', icon:'🗂️'},
       {id:'lerngefaesse', label:'Lerngefässe', icon:'🧭'},
       {id:'standort', label:'Standortbestimmung', icon:'📍'},
       {id:'feedback', label:'Feedback geben', icon:'✉️'}
     ];
     const pieces = [
       {nr:'01', title:'Methodenvielfalt beim Einstieg', icon:'✨', color:'teal', text:'Bis Ende Januar 2026 setze ich in mindestens jeder zweiten Informatiklektion einen methodisch abwechslungsreichen Einstieg ein, um Vorwissen zu aktivieren und Interesse zu wecken.', actions:['Lernvideo, Quizfrage oder Rätsel einsetzen','Kurzprotokoll mit Reflexion führen','Vorwissen bereits am Anfang sichtbar machen'], evidence:['Diagnose-Einstieg','Aktivierender Einstieg','Reflexionsprotokoll']},
-      {nr:'02', title:'Unterschiedliche Lernstile', icon:'🎧', color:'blue', text:'Mindestens zwei Unterrichtseinheiten enthalten visuelle, auditive und praktisch-handlungsorientierte Aufgaben.', actions:['visuelle Schritt-für-Schritt-Anleitung','kurzes Erklärvideo oder mündliche Erklärung','praktische Excel-Aufgabe am Gerät','Kurzumfrage zur Wirksamkeit'], evidence:['Drei Lernzugänge','Umfrage Lernformen']},
+      {nr:'02', title:'Unterschiedliche Lernstile', icon:'🎧', color:'blue', text:'Mindestens zwei Unterrichtseinheiten enthalten visuelle, auditive und praktisch-handlungsorientierte Aufgaben.', actions:['visuelle Schritt-für-Schritt-Anleitung','kurzes Erklärvideo oder mündliche Erklärung','praktische Aufgaben','Umfrage zur Wirksamkeit des Lernweges'], evidence:['<a href="Inhalte/02_Drei_Lernzugaenge_RUNDEN.pdf" target="_blank" rel="noopener">Drei Lernzugänge</a>','<a href="Inhalte/02_Umfrage_Wirksamkeit_des_Lernweges.pdf" target="_blank" rel="noopener">Umfrage zur Wirksamkeit des Lernweges</a>']},
       {nr:'03', title:'Differenzierte Aufgaben', icon:'▦', color:'amber', text:'Ich überarbeite mindestens zwei OneNote-Aufträge mit drei Schwierigkeitsstufen: einfach, mittel und anspruchsvoll.', actions:['Basisaufgabe mit klaren Schritten','Standardaufgabe zur Anwendung','Challenge-Aufgabe für Transfer und Vertiefung'], evidence:['Differenzierter OneNote-Auftrag','Hilfekarten','Schülerprodukte']},
       {nr:'04', title:'Sozialformen bewusst einsetzen', icon:'↔', color:'green', text:'Ich setze Einzel- und Partnerarbeit bewusst ein, um Kooperation, Austausch und selbstständiges Arbeiten zu fördern.', actions:['Sozialform passend zur Aufgabe bestimmen','Nutzung beobachten','Wirksamkeit über Kurzumfrage prüfen'], evidence:['Beobachtungsprotokoll Sozialformen','Umfrage Sozialformen']},
       {nr:'05', title:'Coach-Rolle übernehmen', icon:'💬', color:'rose', text:'Ich reduziere Frontalunterricht auf höchstens 10 Minuten pro Lektion und begleite Lernende mindestens 20 Minuten individuell und gezielt.', actions:['Inputphasen begrenzen','Coaching-Fragen vorbereiten','Lernprozesse beobachten','Selbstreflexion zum Coach-Verhalten führen'], evidence:['Zeitprotokoll Input vs. Coaching','Coaching-Selbstreflexion']},
@@ -226,10 +222,10 @@
       pieces.forEach(p=>{const b=document.createElement('button'); b.className=`piece ${p.color}`; b.title=p.title; b.innerHTML=`<div class="nr">${p.nr}</div><div class="icon">${p.icon}</div><h3>${p.title}</h3><p>${p.text.split('.')[0]}.</p>`; b.onclick=()=>showPiece(p); grid.appendChild(b);});
     }
     function showPiece(p){
-      document.getElementById('modalNr').textContent='Puzzleteil '+p.nr;
+      document.getElementById('modalNr').textContent='Fokusbereich '+p.nr;
       document.getElementById('modalTitle').textContent=p.title;
       document.getElementById('modalText').textContent=p.text;
-      document.getElementById('modalBlocks').innerHTML=`<div class="mini"><h4>Konkrete Handlungen</h4><ul>${p.actions.map(x=>`<li>${x}</li>`).join('')}</ul></div><div class="mini"><h4>Passende Beweisstücke</h4><ul>${p.evidence.map(x=>`<li>${x}</li>`).join('')}</ul></div>`;
+      document.getElementById('modalBlocks').innerHTML=`<div class="mini"><h4>Konkrete Handlungen</h4><ul>${p.actions.map(x=>`<li>${x}</li>`).join('')}</ul></div><div class="mini"><h4>Passende Inhalte</h4><ul>${p.evidence.map(x=>`<li>${x}</li>`).join('')}</ul></div>`;
       document.getElementById('evidenceBtn').onclick=()=>{closeModal(); openSection('galerie');};
       document.getElementById('modal').showModal();
     }
