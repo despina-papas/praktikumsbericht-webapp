@@ -3,190 +3,241 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Praktikumsbericht | Puzzle des Lernens</title>
-  <meta name="description" content="Klickbarer Praktikumsbericht als WebApp: Heterogenität, Differenzierung, Coaching, Peer-Learning und Selbstwirksamkeit im Informatikunterricht." />
+  <title>Praktikumsbericht Despoina Papadopoulou</title>
+  <meta name="description" content="Klickbarer Praktikumsbericht als WebApp: Entwicklungsziele, Beweise, Lerngefässe, Standortbestimmung und Feedback." />
   <style>
     :root{
-      --bg:#f7f5f0;
-      --paper:#fffdfa;
-      --ink:#162033;
+      --bg:#f6f7f9;
+      --surface:#ffffff;
+      --surface-2:#f8fafc;
+      --ink:#172033;
       --muted:#667085;
-      --line:#e6e0d6;
+      --line:#e5e7eb;
       --brand:#0f766e;
-      --brand-2:#1d4ed8;
-      --accent:#f59e0b;
-      --ok:#15803d;
-      --soft:#eef7f5;
-      --shadow:0 16px 45px rgba(22,32,51,.10);
+      --brand-soft:#e7f6f3;
+      --blue:#2563eb;
+      --amber:#d97706;
+      --rose:#db2777;
+      --green:#16a34a;
+      --violet:#7c3aed;
+      --shadow:0 18px 50px rgba(16,24,40,.08);
       --radius:24px;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:radial-gradient(circle at top left,#eef7f5 0,#f7f5f0 38%,#f8fafc 100%);color:var(--ink);line-height:1.55}
-    a{color:inherit}
-    .app{min-height:100vh;display:grid;grid-template-columns:300px 1fr}
-    aside{position:sticky;top:0;height:100vh;padding:24px;border-right:1px solid var(--line);background:rgba(255,253,250,.82);backdrop-filter:blur(14px);overflow:auto}
-    main{padding:32px 42px 80px;max-width:1280px;width:100%;margin:0 auto}
-    .brand{display:flex;gap:12px;align-items:center;margin-bottom:28px}
-    .logo{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:grid;place-items:center;color:white;font-weight:800;box-shadow:var(--shadow)}
-    .brand strong{display:block;font-size:1rem}.brand span{font-size:.84rem;color:var(--muted)}
-    nav{display:grid;gap:8px}.navbtn{border:0;background:transparent;text-align:left;padding:10px 12px;border-radius:14px;color:#344054;cursor:pointer;font-weight:650;display:flex;align-items:center;gap:10px;transition:.2s}.navbtn:hover,.navbtn.active{background:#edf7f5;color:#0f5f59}.dot{width:9px;height:9px;border-radius:99px;background:#cbd5e1}.navbtn.visited .dot{background:var(--ok)}
-    .sidebox{margin-top:28px;padding:16px;border:1px solid var(--line);border-radius:18px;background:#fff}.sidebox h3{margin:0 0 8px;font-size:.95rem}.sidebox p{margin:0;color:var(--muted);font-size:.86rem}
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:stretch;margin-bottom:34px}.hero-card{background:linear-gradient(145deg,#ffffff,#f7fffd);border:1px solid var(--line);border-radius:32px;padding:38px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero-card:before{content:"";position:absolute;right:-90px;top:-80px;width:280px;height:280px;border-radius:50%;background:rgba(15,118,110,.11)}
-    .eyebrow{text-transform:uppercase;letter-spacing:.14em;color:var(--brand);font-size:.78rem;font-weight:800;margin-bottom:14px}.hero h1{margin:0;font-size:clamp(2.2rem,5vw,5.3rem);line-height:.95;letter-spacing:-.06em}.hero h1 span{display:block;color:var(--brand)}.lead{font-size:1.18rem;color:#344054;max-width:820px;margin:22px 0 0}.meta{display:grid;gap:12px}.meta-card{padding:20px;border-radius:22px;border:1px solid var(--line);background:rgba(255,255,255,.82)}.meta-card b{display:block;font-size:.82rem;text-transform:uppercase;color:var(--muted);letter-spacing:.08em}.meta-card span{font-weight:750}
-    .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 28px}.pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 14px;font-weight:700;font-size:.9rem;cursor:pointer}.pill:hover{border-color:#9bd7d0;background:#f0fdfa}.pill.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
-    .section{display:none;animation:fade .25s ease}.section.active{display:block}@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}.card{background:rgba(255,253,250,.94);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 10px 30px rgba(22,32,51,.06)}.card h2,.card h3{margin:0 0 12px}.card h2{font-size:2rem;letter-spacing:-.035em}.card h3{font-size:1.18rem}.card p{color:#344054}.span-4{grid-column:span 4}.span-5{grid-column:span 5}.span-6{grid-column:span 6}.span-7{grid-column:span 7}.span-8{grid-column:span 8}.span-12{grid-column:span 12}
-    .puzzle{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}.piece{min-height:170px;border:0;padding:22px;border-radius:26px;cursor:pointer;text-align:left;position:relative;overflow:hidden;color:#102033;background:#fff;box-shadow:0 16px 35px rgba(15,23,42,.09);transition:transform .2s,filter .2s,opacity .2s}.piece:hover{transform:translateY(-3px)}.piece:after{content:"";position:absolute;right:-34px;bottom:-34px;width:105px;height:105px;border-radius:50%;background:rgba(255,255,255,.42)}.piece .nr{font-size:.82rem;font-weight:900;letter-spacing:.12em;opacity:.75}.piece .icon{font-size:2rem;margin:20px 0 10px}.piece h3{margin:0;font-size:1.1rem;line-height:1.15}.piece p{margin:8px 0 0;color:#344054;font-size:.93rem}.piece.visited{filter:grayscale(1);opacity:.56}.piece[data-color="teal"]{background:linear-gradient(145deg,#dff7f3,#c1ece7)}.piece[data-color="blue"]{background:linear-gradient(145deg,#e6f0ff,#cfe0ff)}.piece[data-color="amber"]{background:linear-gradient(145deg,#fff3d1,#f9d98a)}.piece[data-color="green"]{background:linear-gradient(145deg,#e8f7df,#cceabb)}.piece[data-color="rose"]{background:linear-gradient(145deg,#fff1f4,#ffd6df)}.piece[data-color="slate"]{background:linear-gradient(145deg,#f1f5f9,#dbe3ec)}
-    .tagrow{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}.tag{background:#f1f5f9;color:#344054;border:1px solid #e2e8f0;border-radius:999px;padding:6px 10px;font-size:.82rem;font-weight:700}.tag.ok{background:#ecfdf3;color:#166534;border-color:#bbf7d0}.tag.warn{background:#fffbeb;color:#92400e;border-color:#fde68a}
-    .evidence{display:grid;gap:12px;margin-top:14px}.evidence a,.evidence .fake-link{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;border-radius:16px;background:#f8fafc;border:1px solid #e2e8f0;text-decoration:none;font-weight:750}.evidence small{display:block;color:var(--muted);font-weight:500}.fake-link{color:#344054}
-    .matrix{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden}.matrix th,.matrix td{padding:14px 16px;border-bottom:1px solid #edf2f7;text-align:left;vertical-align:top}.matrix th{background:#f8fafc;color:#475467;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em}.matrix tr:last-child td{border-bottom:0}
-    .quote{font-size:1.3rem;color:#0f5f59;font-weight:800;line-height:1.35;margin:0}.callout{border-left:5px solid var(--brand);background:#f0fdfa;padding:18px;border-radius:18px;color:#134e4a}.rubric{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.rubric div{padding:16px;border-radius:18px;background:#fff;border:1px solid var(--line)}.rubric b{display:block;color:var(--brand);font-size:1.35rem}.rubric span{color:#475467;font-size:.9rem}
-    dialog{border:0;border-radius:28px;padding:0;max-width:860px;width:min(92vw,860px);box-shadow:0 30px 80px rgba(0,0,0,.25)}dialog::backdrop{background:rgba(15,23,42,.52);backdrop-filter:blur(4px)}.modal{padding:28px}.modal-top{display:flex;justify-content:space-between;gap:16px;align-items:start}.close{border:0;background:#f1f5f9;border-radius:999px;width:40px;height:40px;font-size:1.1rem;cursor:pointer}.modal h2{font-size:2rem;margin:0}.modal p{color:#344054}.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}.mini{background:#f8fafc;border:1px solid #e2e8f0;border-radius:18px;padding:16px}.mini h4{margin:0 0 6px}.mini ul{margin:8px 0 0;padding-left:20px;color:#344054}
-    form{display:grid;gap:14px}.field{display:grid;gap:6px}.field label{font-weight:800}.field input,.field textarea,.field select{width:100%;border:1px solid #cbd5e1;border-radius:14px;padding:12px 14px;font:inherit;background:#fff}.field textarea{min-height:130px;resize:vertical}.submit{border:0;border-radius:16px;background:linear-gradient(135deg,var(--brand),#0f4f6e);color:#fff;padding:14px 18px;font-weight:900;cursor:pointer}.submit:hover{filter:brightness(1.05)}.fineprint{font-size:.86rem;color:var(--muted)}
-    .footer{margin-top:34px;padding:26px;border-top:1px solid var(--line);color:#667085;font-size:.92rem}.mobile-menu{display:none}
-    @media(max-width:980px){.app{grid-template-columns:1fr}aside{position:static;height:auto}.hero{grid-template-columns:1fr}.span-4,.span-5,.span-6,.span-7,.span-8,.span-12{grid-column:span 12}.puzzle{grid-template-columns:1fr 1fr}.rubric{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}}
-    @media(max-width:640px){main{padding:22px}.puzzle{grid-template-columns:1fr}.rubric{grid-template-columns:1fr}.hero-card{padding:26px}}
-    @media print{aside,.toolbar,.puzzle,dialog,.footer form{display:none!important}.app{display:block}main{padding:0}.section{display:block!important;page-break-inside:avoid}.card{box-shadow:none}.hero{display:block}}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:radial-gradient(circle at top left,#edf7f5 0,#f6f7f9 36%,#fbfbfd 100%);color:var(--ink);line-height:1.55}
+    a{color:inherit;text-decoration:none}
+    .app{min-height:100vh;display:grid;grid-template-columns:260px 1fr}
+    .sidebar{position:sticky;top:0;height:100vh;padding:22px 18px;border-right:1px solid var(--line);background:rgba(255,255,255,.86);backdrop-filter:blur(16px);overflow:auto}
+    .brand{display:grid;grid-template-columns:42px 1fr;gap:12px;align-items:center;margin-bottom:22px}
+    .brandmark{width:42px;height:42px;border-radius:16px;background:linear-gradient(135deg,var(--brand),#1d4ed8);display:grid;place-items:center;color:white;font-weight:900;box-shadow:0 12px 28px rgba(15,118,110,.25)}
+    .brand b{display:block;font-size:.95rem;line-height:1.15}.brand small{display:block;color:var(--muted);margin-top:3px}
+    .nav{display:grid;gap:8px;margin-top:12px}
+    .nav button{border:0;background:transparent;text-align:left;padding:12px 12px;border-radius:16px;color:#344054;cursor:pointer;font-weight:750;display:flex;align-items:center;gap:11px;transition:.18s ease}
+    .nav button:hover,.nav button.active{background:var(--brand-soft);color:#075e58;transform:translateX(2px)}
+    .nav .ico{width:28px;height:28px;border-radius:11px;background:#f1f5f9;display:grid;place-items:center;font-size:1rem;flex:0 0 auto}
+    .nav button.active .ico{background:#d2f0eb}
+    .sidehint{margin-top:24px;padding:14px;border:1px solid var(--line);border-radius:18px;background:#fff;color:var(--muted);font-size:.84rem}
+    main{padding:24px 36px 70px;max-width:1220px;width:100%;margin:0 auto}
+    .topbar{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:start;margin-bottom:20px}
+    .titlebox{background:rgba(255,255,255,.72);border:1px solid rgba(229,231,235,.85);border-radius:26px;padding:22px 24px;box-shadow:0 12px 35px rgba(16,24,40,.05)}
+    .eyebrow{font-size:.76rem;text-transform:uppercase;letter-spacing:.16em;font-weight:850;color:var(--brand);margin-bottom:8px}
+    h1{margin:0;font-size:clamp(2rem,4vw,4rem);line-height:1.02;letter-spacing:-.055em}
+    .lead{margin:12px 0 0;max-width:760px;color:#344054;font-size:1.04rem}
+    .facts{min-width:260px;display:grid;grid-template-columns:1fr;gap:8px;opacity:.78;font-size:.82rem}
+    .fact{background:rgba(255,255,255,.56);border:1px solid rgba(229,231,235,.8);border-radius:15px;padding:9px 11px;color:#475467}
+    .fact strong{display:block;color:#111827;font-size:.84rem}.fact span{display:block;line-height:1.25}
+    .section{display:none;animation:fade .22s ease}.section.active{display:block}@keyframes fade{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+    .sectionhead{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:18px 0 18px}.sectionhead h2{margin:0;font-size:clamp(1.6rem,3vw,2.6rem);letter-spacing:-.04em}.sectionhead p{margin:6px 0 0;color:var(--muted);max-width:760px}.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);color:#475467;font-weight:800;font-size:.84rem}
+    .puzzleboard{background:#fff;border:1px solid var(--line);border-radius:32px;padding:22px;box-shadow:var(--shadow)}
+    .puzzle{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+    .piece{min-height:168px;border:0;padding:20px;border-radius:26px;cursor:pointer;text-align:left;position:relative;overflow:hidden;color:#102033;background:#fff;box-shadow:0 14px 34px rgba(16,24,40,.07);transition:.2s ease}
+    .piece:hover{transform:translateY(-4px);box-shadow:0 22px 42px rgba(16,24,40,.11)}
+    .piece:before{content:"";position:absolute;right:-26px;bottom:-26px;width:82px;height:82px;border-radius:50%;background:rgba(255,255,255,.42)}
+    .piece:after{content:"";position:absolute;right:20px;top:18px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.48)}
+    .piece .nr{font-size:.78rem;font-weight:950;letter-spacing:.14em;opacity:.72}.piece .icon{font-size:2rem;margin:20px 0 10px}.piece h3{margin:0;font-size:1.07rem;line-height:1.15}.piece p{margin:8px 0 0;color:#344054;font-size:.9rem;max-width:95%}
+    .piece.teal{background:linear-gradient(145deg,#dff7f3,#bfece7)}.piece.blue{background:linear-gradient(145deg,#e6f0ff,#cfe0ff)}.piece.amber{background:linear-gradient(145deg,#fff2cc,#f9d98a)}.piece.green{background:linear-gradient(145deg,#e8f7df,#cceabb)}.piece.rose{background:linear-gradient(145deg,#fff1f4,#ffd6df)}.piece.violet{background:linear-gradient(145deg,#f3e8ff,#ddd6fe)}.piece.slate{background:linear-gradient(145deg,#f1f5f9,#dbe3ec)}.piece.mint{background:linear-gradient(145deg,#ecfdf5,#ccfbf1)}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.card{background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 10px 30px rgba(16,24,40,.055)}.card h3{margin:0 0 10px;font-size:1.15rem}.card p{margin:0;color:#344054}.span-4{grid-column:span 4}.span-5{grid-column:span 5}.span-6{grid-column:span 6}.span-7{grid-column:span 7}.span-8{grid-column:span 8}.span-12{grid-column:span 12}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.tag{padding:6px 10px;border-radius:999px;background:#f1f5f9;color:#475467;border:1px solid #e2e8f0;font-size:.8rem;font-weight:800}.tag.good{background:#ecfdf3;color:#166534;border-color:#bbf7d0}.tag.warn{background:#fffbeb;color:#92400e;border-color:#fde68a}
+    .list{display:grid;gap:10px}.item{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:14px;border:1px solid var(--line);border-radius:18px;background:#fff}.item .n{width:34px;height:34px;border-radius:13px;background:#eef7f5;color:var(--brand);display:grid;place-items:center;font-weight:950}.item strong{display:block}.item small{display:block;color:var(--muted);margin-top:2px}.item a{font-weight:900;color:var(--brand)}
+    .flow{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}.flow div{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;text-align:center;font-weight:850;color:#344054}.flow span{display:block;font-size:1.35rem;margin-bottom:5px}
+    table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border:1px solid var(--line);border-radius:20px;background:#fff}th,td{text-align:left;vertical-align:top;padding:14px;border-bottom:1px solid var(--line)}th{background:#f8fafc;color:#344054;font-size:.86rem;text-transform:uppercase;letter-spacing:.06em}tr:last-child td{border-bottom:0}
+    dialog{border:0;border-radius:28px;padding:0;width:min(760px,92vw);box-shadow:0 35px 100px rgba(16,24,40,.28)}dialog::backdrop{background:rgba(16,24,40,.36);backdrop-filter:blur(4px)}.modal{padding:26px}.modaltop{display:flex;justify-content:space-between;gap:16px;align-items:start}.close{border:0;background:#f1f5f9;border-radius:14px;width:40px;height:40px;font-size:1.5rem;cursor:pointer}.modal h2{margin:0;font-size:2rem;letter-spacing:-.04em}.modalgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}.mini{background:#f8fafc;border:1px solid var(--line);border-radius:18px;padding:16px}.mini h4{margin:0 0 8px}.mini ul{margin:0;padding-left:18px;color:#344054}.modalactions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 14px;font-weight:850;cursor:pointer}.btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+    form{display:grid;gap:14px}.field{display:grid;gap:6px}label{font-weight:850;color:#344054}input,select,textarea{width:100%;border:1px solid #d0d5dd;border-radius:14px;padding:12px 13px;font:inherit;background:#fff}textarea{min-height:130px;resize:vertical}.submit{border:0;border-radius:16px;background:var(--brand);color:white;padding:13px 18px;font-weight:950;cursor:pointer}.fine{font-size:.84rem;color:var(--muted)}
+    .footer{margin-top:36px;color:var(--muted);font-size:.88rem;border-top:1px solid var(--line);padding-top:18px}
+    @media(max-width:980px){.app{grid-template-columns:1fr}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.nav{grid-template-columns:repeat(2,minmax(0,1fr))}main{padding:20px}.topbar{grid-template-columns:1fr}.facts{grid-template-columns:repeat(2,minmax(0,1fr));min-width:0}.puzzle{grid-template-columns:repeat(2,minmax(0,1fr))}.grid{grid-template-columns:1fr}.span-4,.span-5,.span-6,.span-7,.span-8,.span-12{grid-column:span 1}.flow{grid-template-columns:repeat(2,1fr)}.modalgrid{grid-template-columns:1fr}}
+    @media(max-width:560px){.nav{grid-template-columns:1fr}.facts{grid-template-columns:1fr}.puzzle{grid-template-columns:1fr}.sectionhead{display:block}}
   </style>
 </head>
 <body>
   <div class="app">
-    <aside>
-      <div class="brand"><div class="logo">DP</div><div><strong>Praktikumsbericht</strong><span>Puzzle des Lernens</span></div></div>
-      <nav id="sideNav" aria-label="Hauptnavigation"></nav>
-      <div class="sidebox"><h3>Interaktives Prinzip</h3><p>Die Kapitel können frei gewählt werden. Besuchte Kapitel werden im Puzzle und in der Navigation automatisch ausgegraut bzw. markiert.</p></div>
-      <div class="sidebox"><h3>Feedback</h3><p>Am Ende befindet sich ein Formular. Für GitHub Pages nutzt es FormSubmit als statischen Formular-Dienst.</p></div>
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brandmark">DP</div>
+        <div><b>Praktikumsbericht</b><small>BFSL · WebApp</small></div>
+      </div>
+      <nav class="nav" id="sideNav" aria-label="Hauptnavigation"></nav>
+      <div class="sidehint">Die Kapitel können frei gewählt werden. Das Puzzle bildet den Hauptteil: Jedes Teil öffnet ein Entwicklungsziel mit Handlung, Beweisen und Reflexion.</div>
     </aside>
 
     <main>
-      <section class="hero" id="top">
-        <div class="hero-card">
-          <div class="eyebrow">Berufsfachschullehrer:innen-Ausbildung · 2. Studienjahr</div>
-          <h1>Mein <span>Praktikumsbericht</span></h1>
-          <p class="lead">Ein klickbarer WebApp-Prototyp über Heterogenität, Differenzierung, Coaching, Peer-Learning und Selbstwirksamkeit im Informatikunterricht.</p>
-          <div class="toolbar">
-            <button class="pill primary" onclick="openSection('puzzle')">Puzzle starten</button>
-            <button class="pill" onclick="openSection('beweise')">Beweisgalerie öffnen</button>
-            <button class="pill" onclick="openSection('standort')">Standortbestimmung</button>
-            <button class="pill" onclick="resetVisited()">Besuchsstatus zurücksetzen</button>
+      <header class="topbar">
+        <div class="titlebox">
+          <div class="eyebrow">Praxis · Reflexion · Entwicklung</div>
+          <h1>Praktikumsbericht Despoina Papadopoulou</h1>
+          <p class="lead">Eine klickbare WebApp zur Entwicklung meiner professionellen Handlungskompetenz im Informatikunterricht: Heterogenität wahrnehmen, differenzieren, coachen, Peer-Learning ermöglichen und Selbstwirksamkeit stärken.</p>
+        </div>
+        <div class="facts" aria-label="Eckdaten">
+          <div class="fact"><strong>Arbeitsstelle</strong><span>Fach- und Wirtschaftsmittelschulzentrum Luzern</span></div>
+          <div class="fact"><strong>Funktion</strong><span>Lehrperson Informatik</span></div>
+          <div class="fact"><strong>Zeitraum</strong><span>Oktober 2025 bis Februar 2026</span></div>
+          <div class="fact"><strong>Fokus</strong><span>Differenzierter, aktivierender und coachender Informatikunterricht</span></div>
+        </div>
+      </header>
+
+      <section id="entwicklungsziele" class="section active">
+        <div class="sectionhead">
+          <div>
+            <span class="badge">🧩 Hauptteil</span>
+            <h2>Entwicklungsziele als Puzzle</h2>
+            <p>Die Reihenfolge ist nicht vorgegeben: Jedes Puzzleteil steht für einen Teil meiner Lernplanung und zeigt Ziel, Vorgehen, Handlungskompetenz und passende Beweisstücke.</p>
           </div>
         </div>
-        <div class="meta">
-          <div class="meta-card"><b>Name</b><span>Despoina Papadopoulou</span></div>
-          <div class="meta-card"><b>Arbeitsstelle</b><span>Fach- und Wirtschaftsmittelschulzentrum Luzern</span></div>
-          <div class="meta-card"><b>Funktion</b><span>Lehrperson Informatik</span></div>
-          <div class="meta-card"><b>Fokus</b><span>Heterogenität produktiv nutzen</span></div>
-        </div>
+        <div class="puzzleboard"><div class="puzzle" id="puzzleGrid"></div></div>
       </section>
 
-      <section id="puzzle" class="section active">
+      <section id="galerie" class="section">
+        <div class="sectionhead"><div><span class="badge">🗂️ Beweise</span><h2>Galerie der Beweisstücke</h2><p>Die Beweisstücke sind als Platzhalter vorbereitet und können später durch echte Dateien im Repository-Ordner <strong>beweise</strong> ersetzt werden.</p></div></div>
         <div class="grid">
-          <div class="card span-8"><h2>Das Puzzle des Lernens</h2><p>Die einzelnen Puzzleteile bilden zusammen mein professionelles Handeln. Die Reihenfolge ist bewusst offen: Die Betrachtenden können selbst entscheiden, wo sie einsteigen. Jedes Teil steht für ein Entwicklungsziel, eine Handlungskompetenz oder einen Beleg aus der Praxis.</p></div>
-          <div class="card span-4"><h3>Bedienung</h3><p>Klicke auf ein Puzzleteil. Besuchte Teile werden gespeichert und erscheinen ausgegraut. Der Fortschritt bleibt im Browser erhalten.</p></div>
+          <div class="card span-12"><div class="list" id="evidenceList"></div></div>
+          <div class="card span-6"><h3>Beispiel-Unterrichtsinhalt</h3><p>Excel-Doppellektion zu Funktionen: SUMME, MITTELWERT, MIN, MAX, ANZAHL, ANZAHL2, WENN sowie relative und absolute Bezüge.</p><div class="tags"><span class="tag good">praxisnah</span><span class="tag">digital</span><span class="tag">differenziert</span></div></div>
+          <div class="card span-6"><h3>Beweislogik</h3><p>Jedes Beweisstück zeigt nicht nur ein Produkt, sondern auch eine didaktische Absicht: Aktivierung, Diagnose, Differenzierung, Coaching, Peer-Learning oder Reflexion.</p></div>
         </div>
-        <div class="puzzle" id="puzzleGrid"></div>
       </section>
 
-      <section id="kontext" class="section">
+      <section id="lerngefaesse" class="section">
+        <div class="sectionhead"><div><span class="badge">🧭 Ressourcen</span><h2>Lerngefässe</h2><p>Diese Gefässe nutze ich, um meine Ressourcen zu erweitern, Rückmeldungen einzuholen und meine Praxis weiterzuentwickeln.</p></div></div>
         <div class="grid">
-          <article class="card span-7"><h2>1 · Heterogenität wird sichtbar</h2><p>Nach einem Jahr Unterrichtstätigkeit als Informatiklehrperson zeigt sich in meinen Klassen eine hohe Heterogenität. Einige Lernende bringen umfangreiche Vorkenntnisse mit und lösen Aufgaben schnell, während andere bei grundlegenden Funktionen oder technischen Begriffen Unterstützung brauchen.</p><p>Die Herausforderung besteht darin, dass Unterforderung und Überforderung gleichzeitig entstehen können. Schnelle Lernende geraten teilweise in einen „Stealth Mode“, während andere klare Strukturen, Wiederholungen und konkrete Hilfen benötigen.</p></article>
-          <aside class="card span-5"><h3>Klarer Fokus</h3><p class="quote">Wie kann ich Informatikunterricht so gestalten, dass Lernende mit unterschiedlichen Voraussetzungen aktiv, sichtbar und auf ihrem Niveau lernen?</p><div class="tagrow"><span class="tag ok">Praktikumsthema</span><span class="tag">Heterogenität</span><span class="tag">Informatik</span></div></aside>
-          <div class="card span-12"><h3>Beweisstücke zu diesem Teil</h3><div class="evidence"><a href="#beweise" onclick="openSection('beweise')">Beobachtungsprotokoll: Lernverhalten in der Excel-Doppellektion <small>Stealth Mode, Unterstützungsbedarf, Arbeitstempo</small><span>→</span></a><a href="#beweise" onclick="openSection('beweise')">Diagnose-Einstieg zu Excel-Funktionen <small>SUMME, MITTELWERT, MIN, MAX, ANZAHL, ANZAHL2, WENN</small><span>→</span></a></div></div>
+          <div class="card span-4"><h3>🏫 Präsenzunterricht</h3><p>Erprobung der Methoden im realen Informatikunterricht; Beobachtung von Aktivierung, Methodenvielfalt und Coaching-Anteilen.</p></div>
+          <div class="card span-4"><h3>📚 Literaturrecherche</h3><p>Recherche zu Differenzierung, Coaching und selbstständigem Lernen im Informatikunterricht; Transfer in konkrete Materialien.</p></div>
+          <div class="card span-4"><h3>👥 Transfergruppe</h3><p>Regelmässige Besprechung der Entwicklungsziele, Rückmeldungen zu Methoden und Reflexion der Wirkung.</p></div>
+          <div class="card span-4"><h3>🪞 Supervision / Intervision</h3><p>Analyse herausfordernder Situationen, insbesondere Unterforderung, Überforderung und Rollenwechsel zur Coachin.</p></div>
+          <div class="card span-4"><h3>🎯 Mentorat</h3><p>Fokussierung der persönlichen Entwicklung und Prüfung, ob Ziele, Massnahmen und Beweise zusammenpassen.</p></div>
+          <div class="card span-4"><h3>👁️ Praxisbesuch</h3><p>Externe Beobachtung der Unterrichtsumsetzung mit Fokus auf Aktivierung, Differenzierung und Lernbegleitung.</p></div>
+          <div class="card span-12"><h3>🤝 Kolleginnen und Kollegen</h3><p>Austausch über erfolgreiche Differenzierungs- und Coaching-Methoden; Übernahme und Anpassung von praxistauglichen Ideen.</p></div>
         </div>
       </section>
 
-      <section id="performanz" class="section">
+      <section id="standort" class="section">
+        <div class="sectionhead"><div><span class="badge">📍 Reflexion</span><h2>Standortbestimmung</h2><p>Die Standortbestimmung orientiert sich an meinen Entwicklungszielen und meiner Handlungskompetenz. Sie zeigt Stärken, Entwicklungspotenziale und nächste Schritte.</p></div></div>
+        <table>
+          <thead><tr><th>Bereich</th><th>Stärke</th><th>Entwicklungspotenzial</th><th>Nächster Schritt</th></tr></thead>
+          <tbody>
+            <tr><td>Methodenvielfalt</td><td>Ich plane Einstiege bewusster und abwechslungsreicher.</td><td>Einstiege noch stärker diagnostisch nutzen.</td><td>Quiz-Resultate zur Aufgabenwahl verwenden.</td></tr>
+            <tr><td>Lernstile</td><td>Ich kombiniere visuelle, auditive und handlungsorientierte Zugänge.</td><td>Wirkung der Zugänge systematischer vergleichen.</td><td>Kurzumfragen konsequent auswerten.</td></tr>
+            <tr><td>Differenzierung</td><td>Ich strukturiere Aufgaben nach einfach, mittel und anspruchsvoll.</td><td>Die Wahl der passenden Stufe muss noch transparenter werden.</td><td>Entscheidungshilfe für Niveaustufen ergänzen.</td></tr>
+            <tr><td>Coaching</td><td>Ich beobachte bewusster und greife weniger schnell erklärend ein.</td><td>Coaching-Fragen routinierter einsetzen.</td><td>Persönliche Coaching-Fragen-Karte verwenden.</td></tr>
+            <tr><td>Peer-Learning</td><td>Schnelle Lernende erhalten sinnvolle Wahlmöglichkeiten.</td><td>Tutor-Rollen klarer strukturieren.</td><td>Kurzleitfaden für Tutorinnen und Tutoren erstellen.</td></tr>
+            <tr><td>Selbstwirksamkeit</td><td>Reflexionsbögen machen Fortschritte sichtbar.</td><td>Rückmeldungen stärker in Folgeplanung einbauen.</td><td>Monatsauswertung mit konkreten Anpassungen dokumentieren.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="feedback" class="section">
+        <div class="sectionhead"><div><span class="badge">✉️ Rückmeldung</span><h2>Feedback geben</h2><p>Das Formular ist für GitHub Pages vorbereitet. Es nutzt FormSubmit, damit auch eine statische HTML-Seite eine E-Mail auslösen kann.</p></div></div>
         <div class="grid">
-          <article class="card span-8"><h2>2 · Zielbild und Performanz</h2><p>In meinem idealen Informatikunterricht nutze ich Heterogenität als Chance. Der Unterricht beginnt mit einer aktivierenden Methode, macht Vorwissen sichtbar und bietet anschliessend mehrere Lernwege. In der Verarbeitungsphase nach AVIVA arbeiten die Lernenden mit differenzierten Aufgaben, wechselnden Sozialformen und passenden Hilfsmitteln.</p><p>Meine Rolle verschiebt sich vom überwiegenden Erklären hin zum Beobachten, Fragenstellen und gezielten Begleiten. Am Ende reflektieren die Lernenden ihren Lernprozess anhand klarer Kriterien.</p></article>
-          <div class="card span-4"><h3>Performanz in einem Satz</h3><p class="callout">Ich plane, beobachte, differenziere, begleite und reflektiere so, dass Lernende selbstständiger und selbstwirksamer arbeiten können.</p></div>
-          <div class="card span-12"><table class="matrix"><thead><tr><th>Phase</th><th>Professionelles Handeln</th><th>Erwartbare Wirkung</th></tr></thead><tbody><tr><td>Einstieg</td><td>Quiz, Rätsel, Lernvideo oder Fehlersuche</td><td>Vorwissen und Interesse werden sichtbar</td></tr><tr><td>Verarbeitung</td><td>Basis-, Mittel- und Challenge-Aufgaben</td><td>Passung zwischen Niveau und Aufgabe</td></tr><tr><td>Begleitung</td><td>Coaching-Fragen und individuelle Unterstützung</td><td>Mehr Selbstständigkeit statt Lösungsvorgaben</td></tr><tr><td>Auswertung</td><td>Reflexionsbogen und Umfrage</td><td>Lernfortschritt und Selbstwirksamkeit werden bewusst</td></tr></tbody></table></div>
+          <div class="card span-7">
+            <form action="https://formsubmit.co/figaro.ashby@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="Feedback zum Praktikumsbericht WebApp">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              <div class="field"><label for="name">Name</label><input id="name" name="Name" required placeholder="Ihr Name"></div>
+              <div class="field"><label for="rolle">Rolle</label><select id="rolle" name="Rolle"><option>Mentor/in</option><option>Dozent/in</option><option>Kolleg/in</option><option>Lernende/r</option><option>Andere Rolle</option></select></div>
+              <div class="field"><label for="rating">Gesamteindruck</label><select id="rating" name="Gesamteindruck"><option>Sehr überzeugend</option><option>Überzeugend</option><option>Teilweise überzeugend</option><option>Noch unklar</option></select></div>
+              <div class="field"><label for="message">Rückmeldung</label><textarea id="message" name="Rueckmeldung" required placeholder="Was ist nachvollziehbar? Was ist stark? Was sollte ich noch präzisieren?"></textarea></div>
+              <button class="submit" type="submit">Feedback per E-Mail senden</button>
+              <p class="fine">Beim ersten Versand verlangt FormSubmit normalerweise eine einmalige Aktivierung per E-Mail an die Zieladresse. Danach funktioniert das Formular ohne eigenes Backend.</p>
+            </form>
+          </div>
+          <div class="card span-5"><h3>Direkte Alternative</h3><p>Falls der Formular-Dienst blockiert wird, kann Feedback auch direkt per E-Mail geschickt werden.</p><div class="tags"><a class="tag good" href="mailto:figaro.ashby@gmail.com?subject=Feedback%20zum%20Praktikumsbericht">E-Mail öffnen</a></div></div>
         </div>
       </section>
 
-      <section id="ziele" class="section">
-        <div class="grid"><div class="card span-12"><h2>3 · Entwicklungsziele und Massnahmen</h2><p>Die Entwicklungsziele sind operationalisiert, terminiert und mit konkreten Massnahmen verbunden. Sie bilden die Grundlage für die Beweisführung im Praktikumsbericht.</p></div>
-          <div class="card span-6"><h3>Methodenvielfalt beim Einstieg</h3><p>Bis Ende Januar 2026 setze ich mindestens in jeder zweiten Informatiklektion einen methodisch abwechslungsreichen Einstieg ein.</p><div class="tagrow"><span class="tag ok">Quiz</span><span class="tag ok">Lernvideo</span><span class="tag ok">Rätsel</span></div></div>
-          <div class="card span-6"><h3>Unterschiedliche Lernstile</h3><p>Mindestens zwei Unterrichtseinheiten enthalten visuelle, auditive und praktisch-handlungsorientierte Aufgaben. Die Wirksamkeit wird per Umfrage erhoben.</p><div class="tagrow"><span class="tag">visuell</span><span class="tag">auditiv</span><span class="tag">handlungsorientiert</span></div></div>
-          <div class="card span-6"><h3>Differenzierte Aufgaben und Sozialformen</h3><p>Mindestens zwei OneNote-Aufträge werden in drei Schwierigkeitsstufen überarbeitet und mit Einzel- oder Partnerarbeit kombiniert.</p><div class="tagrow"><span class="tag">einfach</span><span class="tag">mittel</span><span class="tag">anspruchsvoll</span></div></div>
-          <div class="card span-6"><h3>Rolle als Coach</h3><p>Frontalunterricht wird auf höchstens 10 Minuten pro Lektion reduziert. Mindestens 20 Minuten dienen Beobachtung und individueller Begleitung.</p><div class="tagrow"><span class="tag warn">max. 10 Min. Input</span><span class="tag ok">mind. 20 Min. Coaching</span></div></div>
-          <div class="card span-6"><h3>Selbstständigkeit und Peer-Learning</h3><p>Schnelle Lernende erhalten Wahlmöglichkeiten: Zusatzaufgabe, Tutor-Rolle oder Erstellung von Lernhilfen.</p></div>
-          <div class="card span-6"><h3>Selbstwirksamkeit fördern</h3><p>Ab Januar 2026 führen die Lernenden am Ende jeder Lektion einen kurzen Reflexionsbogen aus. Die Ergebnisse werden monatlich ausgewertet.</p></div>
-        </div>
-      </section>
-
-      <section id="handlung" class="section"><div class="grid"><div class="card span-12"><h2>4 · Handlungskompetenz</h2><p class="quote">Ich kann heterogene Lerngruppen im Informatikunterricht so begleiten, dass Lernende durch aktivierende Einstiege, differenzierte Aufgaben, passende Lernzugänge, Coaching, Peer-Learning und Reflexion zunehmend selbstständig, sichtbar und auf ihrem Kompetenzniveau lernen.</p></div>
-        <div class="card span-6"><h3>Kompetenzerweiterung</h3><ul><li>Methoden gezielt auswählen und kombinieren.</li><li>Aufträge für verschiedene Lernstile planen.</li><li>Aufgaben nach Wissens- und Kompetenzniveau differenzieren.</li><li>Sozialformen bewusst einsetzen.</li></ul></div>
-        <div class="card span-6"><h3>Professionelle Rolle</h3><ul><li>Coach-Rolle einnehmen: beobachten, fragen, unterstützen.</li><li>Selbstständigkeit und Peer-Learning fördern.</li><li>Reflexionsprozesse anleiten.</li><li>Feedback in die Unterrichtsgestaltung einbeziehen.</li></ul></div></div></section>
-
-      <section id="werkstatt" class="section"><div class="grid"><article class="card span-8"><h2>5 · Werkstatt: differenzierte Materialien</h2><p>Die Werkstatt zeigt exemplarisch eine Excel-Doppellektion zu Funktionen. Die Lernenden arbeiten an denselben Kompetenzzielen, aber mit unterschiedlichen Zugängen und Unterstützungsgraden.</p><table class="matrix"><thead><tr><th>Niveau</th><th>Aufgabe</th><th>Unterstützung</th></tr></thead><tbody><tr><td>Einfach</td><td>SUMME, MITTELWERT, MIN, MAX in vorbereiteten Tabellen anwenden</td><td>Schritt-für-Schritt-Karte</td></tr><tr><td>Mittel</td><td>ANZAHL, ANZAHL2 und WENN in einer Auswertung nutzen</td><td>Beispiellösung als Hilfekarte</td></tr><tr><td>Anspruchsvoll</td><td>Relative und absolute Bezüge in einer Bonusberechnung erklären und übertragen</td><td>Challenge-Auftrag ohne Lösungsweg</td></tr></tbody></table></article><aside class="card span-4"><h3>Belegidee</h3><p>Vorher-Nachher-Vergleich eines OneNote-Auftrags: von „eine Aufgabe für alle“ zu „drei Lernwege mit Wahlmöglichkeit“.</p></aside></div></section>
-
-      <section id="coaching" class="section"><div class="grid"><article class="card span-7"><h2>6 · Coaching-Zone</h2><p>Die Coaching-Zone steht für die bewusste Reduktion von Frontalinput und den Aufbau gezielter Lernbegleitung. Statt sofort Lösungen zu geben, arbeite ich mit Diagnosefragen und kurzen Interventionen.</p><div class="callout"><strong>Typische Coaching-Fragen:</strong><br>Was hast du bereits versucht? Wo genau kommst du nicht weiter? Welche Hilfequelle könntest du zuerst nutzen? Wie würdest du dein Vorgehen jemand anderem erklären?</div></article><aside class="card span-5"><h3>Messbare Umsetzung</h3><table class="matrix"><tbody><tr><td>Input</td><td>höchstens 10 Minuten</td></tr><tr><td>Beobachtung & Begleitung</td><td>mindestens 20 Minuten</td></tr><tr><td>Dokumentation</td><td>Selbstreflexionsprotokoll</td></tr></tbody></table></aside></div></section>
-
-      <section id="peer" class="section"><div class="grid"><article class="card span-8"><h2>7 · Peer-Learning und Selbstständigkeit</h2><p>Schnelle Lernende sollen nicht zusätzliche Beschäftigung erhalten, sondern sinnvolle Wahlmöglichkeiten. Damit wird ihr Können sichtbar und gleichzeitig für die Lerngruppe nutzbar.</p><div class="rubric"><div><b>01</b><span>Challenge-Aufgabe lösen</span></div><div><b>02</b><span>Tutor-Rolle übernehmen</span></div><div><b>03</b><span>Mini-Anleitung erstellen</span></div><div><b>04</b><span>Lösungsvideo aufnehmen</span></div></div></article><aside class="card span-4"><h3>Dokumentation</h3><p>Ein kurzes Protokoll hält fest, welche Wahlmöglichkeiten genutzt wurden und welche Wirkung auf Selbstständigkeit, Motivation und Peer-Unterstützung sichtbar wurde.</p></aside></div></section>
-
-      <section id="reflexion" class="section"><div class="grid"><article class="card span-7"><h2>8 · Reflexionsspiegel</h2><p>Die Reflexion am Ende der Lektion macht Lernfortschritte sichtbar. Die Lernenden schätzen ein, was sie selbstständig lösen konnten, wo Unterstützung nötig war und welche Strategie ihnen geholfen hat.</p><table class="matrix"><thead><tr><th>Frage</th><th>Zweck</th></tr></thead><tbody><tr><td>Was konnte ich heute selbstständig lösen?</td><td>Selbstwirksamkeit sichtbar machen</td></tr><tr><td>Wo brauchte ich Unterstützung?</td><td>Unterstützungsbedarf diagnostizieren</td></tr><tr><td>Welche Strategie hat mir geholfen?</td><td>Lernstrategien bewusst machen</td></tr><tr><td>Wie sicher fühle ich mich?</td><td>Nächste Planung ableiten</td></tr></tbody></table></article><aside class="card span-5"><h3>Auswertung</h3><p>Die Reflexionsbögen werden monatlich ausgewertet und ausgewählte Ergebnisse werden mit der Klasse oder einzelnen Lernenden besprochen.</p></aside></div></section>
-
-      <section id="lerngefaesse" class="section"><div class="grid"><div class="card span-12"><h2>9 · Lerngefässe und Vorgehensweise</h2><p>Die Ressourcenerweiterung erfolgt nicht nur im eigenen Unterricht, sondern auch über Austausch, Beobachtung, Rückmeldung und Recherche.</p></div><div class="card span-4"><h3>Transfergruppe</h3><p>Regelmässige Besprechung der Entwicklungsziele und Rückmeldungen zu erprobten Methoden.</p></div><div class="card span-4"><h3>Mentorat & Praxisbesuch</h3><p>Reflexion der eigenen Rolle, Beobachtung der Aktivierung und Analyse von Coaching-Anteilen.</p></div><div class="card span-4"><h3>Kollegium & Literatur</h3><p>Austausch zu Differenzierungs- und Coaching-Methoden sowie Recherche zu Strategien im Informatikunterricht.</p></div><div class="card span-12"><h3>Konkrete Vorgehensweise</h3><table class="matrix"><tbody><tr><td>Nach jeder Lektion</td><td>kurze Notizen zur Wirksamkeit von Methoden und Sozialformen</td></tr><tr><td>Während der Einheit</td><td>gezielte Beobachtung von Lernverhalten, Selbstständigkeit und Peer-Unterstützung</td></tr><tr><td>Nach Unterrichtseinheiten</td><td>Umfragen einholen und Material weiter optimieren</td></tr><tr><td>Monatlich</td><td>Reflexionsformulare auswerten und Konsequenzen festhalten</td></tr></tbody></table></div></div></section>
-
-      <section id="beweise" class="section"><div class="grid"><div class="card span-12"><h2>10 · Beweisgalerie</h2><p>Die folgenden Beweisstücke sind als klickbare Platzhalter angelegt. Lege später deine echten Dateien in einem Ordner <code>beweise/</code> ab und ersetze die Links. Für den Prototyp öffnen die Einträge kurze Beschreibungen.</p></div><div class="card span-12"><div class="evidence" id="evidenceList"></div></div></div></section>
-
-      <section id="standort" class="section"><div class="grid"><div class="card span-12"><h2>11 · Standortbestimmung</h2><p>Die Standortbestimmung orientiert sich transparent an den Entwicklungszielen und an der zentralen Handlungskompetenz. Sie weist Stärken, Entwicklungspotenziale und nächste Schritte aus.</p></div><div class="card span-12"><table class="matrix"><thead><tr><th>Bereich</th><th>Stärke</th><th>Entwicklungspotenzial</th><th>Nächster Schritt</th></tr></thead><tbody><tr><td>Aktivierende Einstiege</td><td>Ich plane Einstiege bewusster und abwechslungsreicher.</td><td>Diagnostische Nutzung noch systematischer machen.</td><td>Einstiegsresultate für Aufgabenwahl nutzen.</td></tr><tr><td>Differenzierung</td><td>Ich kann Aufgaben in drei Niveaustufen strukturieren.</td><td>Wahlentscheidung für Lernende noch klarer gestalten.</td><td>Entscheidungshilfe „Welche Stufe passt?“ erstellen.</td></tr><tr><td>Coaching</td><td>Ich beobachte stärker und greife weniger vorschnell erklärend ein.</td><td>Coaching-Fragen routinierter einsetzen.</td><td>Coaching-Karte am Arbeitsplatz nutzen.</td></tr><tr><td>Peer-Learning</td><td>Schnelle Lernende erhalten sinnvollere Rollen.</td><td>Tutor-Rolle muss klar begrenzt werden.</td><td>Mini-Leitfaden für Tutorinnen und Tutoren erstellen.</td></tr><tr><td>Reflexion</td><td>Lernprozesse werden regelmässiger sichtbar.</td><td>Auswertungen noch konsequenter in die nächste Planung übernehmen.</td><td>Monatliche Reflexionsübersicht führen.</td></tr></tbody></table></div></div></section>
-
-      <section id="rubric" class="section"><div class="grid"><div class="card span-12"><h2>12 · Ausrichtung an der Rubric</h2><p>Der WebApp-Prototyp erfüllt die geforderte kreative Form und macht die Verbindung zwischen Praktikumsthema, Handlungskompetenz, Entwicklungszielen, Massnahmen, Beweisen und Standortbestimmung sichtbar.</p></div><div class="card span-12"><div class="rubric"><div><b>1</b><span>Praktikumsbeschreibung prägnant, differenziert und anschaulich</span></div><div><b>2</b><span>Handlungskompetenz, Ziele und Massnahmen klar verbunden</span></div><div><b>3</b><span>Standortbestimmung mit Stärken, Potenzialen und Entwicklungsschritten</span></div><div><b>4</b><span>Kreative WebApp mit interaktiver Navigation und Feedback</span></div></div></div></div></section>
-
-      <section id="feedback" class="section"><div class="grid"><div class="card span-7"><h2>Feedback zum Praktikumsbericht</h2><p>Dieses Formular ist für GitHub Pages vorbereitet. Es nutzt FormSubmit, damit aus einer statischen HTML-Seite eine E-Mail an die hinterlegte Adresse gesendet werden kann.</p><form action="https://formsubmit.co/figaro.ashby@gmail.com" method="POST"><input type="hidden" name="_subject" value="Feedback zum Praktikumsbericht WebApp"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false"><div class="field"><label for="name">Name</label><input id="name" name="Name" required placeholder="Ihr Name"></div><div class="field"><label for="rolle">Rolle</label><select id="rolle" name="Rolle"><option>Mentor/in</option><option>Dozent/in</option><option>Kolleg/in</option><option>Lernende/r</option><option>Andere Rolle</option></select></div><div class="field"><label for="rating">Gesamteindruck</label><select id="rating" name="Gesamteindruck"><option>Sehr überzeugend</option><option>Überzeugend</option><option>Teilweise überzeugend</option><option>Noch unklar</option></select></div><div class="field"><label for="message">Rückmeldung</label><textarea id="message" name="Rueckmeldung" required placeholder="Was ist nachvollziehbar? Was ist stark? Was sollte ich noch präzisieren?"></textarea></div><button class="submit" type="submit">Feedback per E-Mail senden</button><p class="fineprint">Beim ersten Versand verlangt FormSubmit normalerweise eine einmalige Aktivierung per E-Mail an die Zieladresse. Danach funktioniert das Formular ohne eigenes Backend.</p></form></div><aside class="card span-5"><h3>Alternativer Kontakt</h3><p>Falls der Formular-Dienst blockiert wird, kann Feedback auch direkt per E-Mail geschickt werden.</p><div class="evidence"><a href="mailto:figaro.ashby@gmail.com?subject=Feedback%20zum%20Praktikumsbericht">E-Mail öffnen <span>→</span></a></div></aside></div></section>
-
-      <footer class="footer"><strong>Hinweis zur Weiterarbeit:</strong> Diese Datei ist eine vollständige <code>index.html</code>. Für GitHub Pages ins Repository laden, veröffentlichen und danach die Platzhalterlinks zu den echten Beweisstücken ersetzen.</footer>
+      <footer class="footer">Diese Datei ist eine vollständige <code>index.html</code>. Für GitHub Pages ins Repository laden. Die Platzhalterlinks zu den Beweisstücken können später durch echte Dateien ersetzt werden.</footer>
     </main>
   </div>
 
-  <dialog id="modal"><div class="modal"><div class="modal-top"><div><div class="eyebrow" id="modalNr"></div><h2 id="modalTitle"></h2></div><button class="close" onclick="closeModal()" aria-label="Schliessen">×</button></div><p id="modalText"></p><div class="two" id="modalBlocks"></div><div class="toolbar"><button class="pill primary" id="modalOpenBtn">Kapitel öffnen</button><button class="pill" onclick="closeModal()">Zurück zum Puzzle</button></div></div></dialog>
+  <dialog id="modal">
+    <div class="modal">
+      <div class="modaltop"><div><div class="eyebrow" id="modalNr"></div><h2 id="modalTitle"></h2></div><button class="close" onclick="closeModal()" aria-label="Schliessen">×</button></div>
+      <p id="modalText"></p>
+      <div class="modalgrid" id="modalBlocks"></div>
+      <div class="modalactions"><button class="btn primary" onclick="closeModal()">Zurück zum Puzzle</button><button class="btn" id="evidenceBtn">Passende Beweise öffnen</button></div>
+    </div>
+  </dialog>
 
   <script>
-    const sections = [
-      {id:'puzzle', label:'Puzzle'}, {id:'kontext', label:'Heterogenität'}, {id:'performanz', label:'Performanz'}, {id:'ziele', label:'Entwicklungsziele'}, {id:'handlung', label:'Handlungskompetenz'}, {id:'werkstatt', label:'Werkstatt'}, {id:'coaching', label:'Coaching'}, {id:'peer', label:'Peer-Learning'}, {id:'reflexion', label:'Reflexion'}, {id:'lerngefaesse', label:'Lerngefässe'}, {id:'beweise', label:'Beweisgalerie'}, {id:'standort', label:'Standort'}, {id:'rubric', label:'Rubric'}, {id:'feedback', label:'Feedback'}
+    const navItems = [
+      {id:'entwicklungsziele', label:'Entwicklungsziele', icon:'🧩'},
+      {id:'galerie', label:'Galerie', icon:'🗂️'},
+      {id:'lerngefaesse', label:'Lerngefässe', icon:'🧭'},
+      {id:'standort', label:'Standortbestimmung', icon:'📍'},
+      {id:'feedback', label:'Feedback geben', icon:'✉️'}
     ];
     const pieces = [
-      {nr:'01', id:'kontext', title:'Heterogenität wird sichtbar', icon:'◉', color:'teal', text:'Ausgangslage und Praktikumsthema verstehen.', evidence:['Beobachtungsprotokoll','Diagnose-Einstieg']},
-      {nr:'02', id:'performanz', title:'Zielbild & Performanz', icon:'◆', color:'blue', text:'Ideale Alltagssituation professionell beschreiben.', evidence:['AVIVA-Ablauf','Zielperformanz']},
-      {nr:'03', id:'ziele', title:'Entwicklungsziele', icon:'✓', color:'amber', text:'Operationalisierte Ziele und Massnahmen sichtbar machen.', evidence:['Ziel-Massnahmen-Matrix','Zeitplan']},
-      {nr:'04', id:'handlung', title:'Handlungskompetenz', icon:'⬡', color:'green', text:'Kompetenzen bündeln und mit dem Fokus verbinden.', evidence:['Kompetenzformulierung','Praxisbezug']},
-      {nr:'05', id:'werkstatt', title:'Werkstatt', icon:'▦', color:'slate', text:'Differenzierte Materialien zur Excel-Doppellektion.', evidence:['OneNote-Auftrag','Hilfekarten']},
-      {nr:'06', id:'coaching', title:'Coaching-Zone', icon:'?', color:'rose', text:'Weniger erklären, gezielter begleiten.', evidence:['Zeitprotokoll','Coaching-Protokoll']},
-      {nr:'07', id:'peer', title:'Peer-Learning', icon:'↔', color:'teal', text:'Schnelle Lernende sinnvoll aktivieren.', evidence:['Wahlboard','Tutor-Reflexion']},
-      {nr:'08', id:'reflexion', title:'Reflexionsspiegel', icon:'◎', color:'blue', text:'Selbstwirksamkeit sichtbar machen.', evidence:['Reflexionsbogen','Monatsauswertung']},
-      {nr:'09', id:'lerngefaesse', title:'Lerngefässe', icon:'⌁', color:'green', text:'Transfergruppe, Mentorat, Praxisbesuch, Kollegium und Literatur.', evidence:['Transfernotiz','Kollegialer Austausch']},
-      {nr:'10', id:'beweise', title:'Beweisgalerie', icon:'▣', color:'amber', text:'Alle Nachweise klickbar bündeln.', evidence:['Beweisübersicht','Dateilinks']},
-      {nr:'11', id:'standort', title:'Standortbestimmung', icon:'▲', color:'slate', text:'Stärken, Entwicklungspotenziale und nächste Schritte.', evidence:['Standortmatrix','Ausblick']},
-      {nr:'12', id:'feedback', title:'Feedback', icon:'✉', color:'rose', text:'Rückmeldungen direkt einholen.', evidence:['Formular','E-Mail']}
+      {nr:'01', title:'Methodenvielfalt beim Einstieg', icon:'✨', color:'teal', text:'Bis Ende Januar 2026 setze ich in mindestens jeder zweiten Informatiklektion einen methodisch abwechslungsreichen Einstieg ein, um Vorwissen zu aktivieren und Interesse zu wecken.', actions:['Lernvideo, Quizfrage oder Rätsel einsetzen','Kurzprotokoll mit Reflexion führen','Vorwissen bereits am Anfang sichtbar machen'], evidence:['Diagnose-Einstieg','Aktivierender Einstieg','Reflexionsprotokoll']},
+      {nr:'02', title:'Unterschiedliche Lernstile', icon:'🎧', color:'blue', text:'Mindestens zwei Unterrichtseinheiten enthalten visuelle, auditive und praktisch-handlungsorientierte Aufgaben.', actions:['visuelle Schritt-für-Schritt-Anleitung','kurzes Erklärvideo oder mündliche Erklärung','praktische Excel-Aufgabe am Gerät','Kurzumfrage zur Wirksamkeit'], evidence:['Drei Lernzugänge','Umfrage Lernformen']},
+      {nr:'03', title:'Differenzierte Aufgaben', icon:'▦', color:'amber', text:'Ich überarbeite mindestens zwei OneNote-Aufträge mit drei Schwierigkeitsstufen: einfach, mittel und anspruchsvoll.', actions:['Basisaufgabe mit klaren Schritten','Standardaufgabe zur Anwendung','Challenge-Aufgabe für Transfer und Vertiefung'], evidence:['Differenzierter OneNote-Auftrag','Hilfekarten','Schülerprodukte']},
+      {nr:'04', title:'Sozialformen bewusst einsetzen', icon:'↔', color:'green', text:'Ich setze Einzel- und Partnerarbeit bewusst ein, um Kooperation, Austausch und selbstständiges Arbeiten zu fördern.', actions:['Sozialform passend zur Aufgabe bestimmen','Nutzung beobachten','Wirksamkeit über Kurzumfrage prüfen'], evidence:['Beobachtungsprotokoll Sozialformen','Umfrage Sozialformen']},
+      {nr:'05', title:'Coach-Rolle übernehmen', icon:'💬', color:'rose', text:'Ich reduziere Frontalunterricht auf höchstens 10 Minuten pro Lektion und begleite Lernende mindestens 20 Minuten individuell und gezielt.', actions:['Inputphasen begrenzen','Coaching-Fragen vorbereiten','Lernprozesse beobachten','Selbstreflexion zum Coach-Verhalten führen'], evidence:['Zeitprotokoll Input vs. Coaching','Coaching-Selbstreflexion']},
+      {nr:'06', title:'Selbstständigkeit fördern', icon:'🪜', color:'violet', text:'Schnelle Lernende erhalten in jeder Unterrichtseinheit Wahlmöglichkeiten, um ihre Kompetenzen sinnvoll zu erweitern.', actions:['Zusatzaufgabe anbieten','Tutor-Rolle ermöglichen','Erstellung von Lernhilfen oder Lösungsvideos anbieten'], evidence:['Wahlboard','Zusatzaufgabe','Lernhilfe']},
+      {nr:'07', title:'Peer-Learning ermöglichen', icon:'🤝', color:'mint', text:'Fortgeschrittene Lernende unterstützen Lernende mit Unterstützungsbedarf. Dadurch werden Kompetenzen sichtbar und die Lerngruppe wird entlastet.', actions:['Tutor-Rolle klar beschreiben','Peer-Unterstützung beobachten','Nutzung der Lernformen protokollieren'], evidence:['Peer-Learning-Protokoll','Tutor-Reflexion']},
+      {nr:'08', title:'Selbstwirksamkeit stärken', icon:'◎', color:'slate', text:'Ab Januar 2026 füllen die Lernenden am Ende jeder Lektion einen kurzen Reflexionsbogen aus. Ich werte diese monatlich aus und bespreche Ergebnisse individuell.', actions:['Reflexionsbogen einsetzen','monatlich auswerten','Ergebnisse mit Lernenden besprechen','Folgeplanung anpassen'], evidence:['Reflexionsbogen','Monatsauswertung','Anpassungen der Planung']}
     ];
     const evidence = [
       ['01','Diagnose-Einstieg Excel-Funktionen','Quiz oder Forms-Abfrage zu SUMME, MITTELWERT, MIN, MAX, ANZAHL, ANZAHL2, WENN.','beweise/01_diagnose_einstieg.pdf'],
-      ['02','Beobachtungsprotokoll Heterogenität','Notizen zu Arbeitstempo, Unterstützungsbedarf, Stealth Mode und Motivation.','beweise/02_beobachtungsprotokoll.pdf'],
-      ['03','Aktivierender Einstieg','Rätsel oder Fehlersuche als Einstieg in relative und absolute Bezüge.','beweise/03_aktivierender_einstieg.pdf'],
-      ['04','Drei Lernzugänge','Visuelle Anleitung, kurzes Erklärvideo und praktische Aufgabe.','beweise/04_lernzugaenge.pdf'],
-      ['05','Differenzierter OneNote-Auftrag','Basis-, Mittel- und Challenge-Aufgabe zur Excel-Doppellektion.','beweise/05_onenote_auftrag.pdf'],
-      ['06','Hilfekarten','Schritt-für-Schritt-Hilfen und Beispiellösungen zu Funktionen.','beweise/06_hilfekarten.pdf'],
-      ['07','Zeitprotokoll Input vs. Coaching','Dokumentation: maximal 10 Minuten Input, mindestens 20 Minuten Begleitung.','beweise/07_zeitprotokoll.pdf'],
-      ['08','Coaching-Selbstreflexion','Reflexion zu Fragen, Interventionen und Beobachtungen.','beweise/08_coaching_reflexion.pdf'],
-      ['09','Wahlboard für schnelle Lernende','Zusatzaufgabe, Tutor-Rolle, Lernhilfe oder Lösungsvideo.','beweise/09_wahlboard.pdf'],
-      ['10','Peer-Learning-Protokoll','Welche Lernformen wurden genutzt und wie wirkte die Unterstützung?','beweise/10_peer_learning.pdf'],
-      ['11','Reflexionsbogen Lernende','Selbsteinschätzung zu Fortschritt, Strategie und Unterstützungsbedarf.','beweise/11_reflexionsbogen.pdf'],
-      ['12','Monatsauswertung Feedback','Zusammenfassung der Rückmeldungen und Konsequenzen für die Planung.','beweise/12_monatsauswertung.pdf']
+      ['02','Aktivierender Einstieg','Rätsel oder Fehlersuche zu relativen und absoluten Bezügen.','beweise/02_aktivierender_einstieg.pdf'],
+      ['03','Reflexionsprotokoll Einstieg','Kurznotizen zur Wirkung jedes Einstiegs.','beweise/03_reflexionsprotokoll_einstieg.pdf'],
+      ['04','Drei Lernzugänge','Visuelle Anleitung, kurzes Erklärvideo und praktische Excel-Aufgabe.','beweise/04_lernzugaenge.pdf'],
+      ['05','Umfrage Lernformen','Rückmeldung, welche Lernform den Lernenden geholfen hat.','beweise/05_umfrage_lernformen.pdf'],
+      ['06','Differenzierter OneNote-Auftrag','Einfach, mittel, anspruchsvoll zur Excel-Doppellektion.','beweise/06_onenote_auftrag.pdf'],
+      ['07','Hilfekarten','Schritt-für-Schritt-Hilfen und Beispiele zu Excel-Funktionen.','beweise/07_hilfekarten.pdf'],
+      ['08','Beobachtungsprotokoll Sozialformen','Nutzung von Einzel- und Partnerarbeit.','beweise/08_sozialformen.pdf'],
+      ['09','Zeitprotokoll Input vs. Coaching','Max. 10 Minuten Input, mind. 20 Minuten Begleitung.','beweise/09_zeitprotokoll.pdf'],
+      ['10','Coaching-Selbstreflexion','Notizen zu Fragen, Interventionen und Rollenwechsel.','beweise/10_coaching_reflexion.pdf'],
+      ['11','Wahlboard schnelle Lernende','Zusatzaufgabe, Tutor-Rolle, Lernhilfe oder Lösungsvideo.','beweise/11_wahlboard.pdf'],
+      ['12','Peer-Learning-Protokoll','Welche Lernformen wurden genutzt und wie wirkte die Unterstützung?','beweise/12_peer_learning.pdf'],
+      ['13','Reflexionsbogen Lernende','Selbsteinschätzung zu Fortschritt, Strategie und Unterstützungsbedarf.','beweise/13_reflexionsbogen.pdf'],
+      ['14','Monatsauswertung Feedback','Zusammenfassung der Rückmeldungen und Konsequenzen für die Planung.','beweise/14_monatsauswertung.pdf']
     ];
-    const visitedKey='praktikumsberichtVisited';
-    let visited = new Set(JSON.parse(localStorage.getItem(visitedKey)||'[]'));
-
-    function saveVisited(){localStorage.setItem(visitedKey, JSON.stringify([...visited]));}
-    function markVisited(id){visited.add(id); saveVisited(); renderNav(); renderPuzzle();}
-    function openSection(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active')); const el=document.getElementById(id); if(el){el.classList.add('active'); markVisited(id); window.scrollTo({top:0,behavior:'smooth'});} document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active', b.dataset.target===id));}
-    function resetVisited(){visited = new Set(); saveVisited(); renderNav(); renderPuzzle();}
-    function renderNav(){const nav=document.getElementById('sideNav'); nav.innerHTML=''; sections.forEach(s=>{const b=document.createElement('button'); b.className='navbtn'+(visited.has(s.id)?' visited':''); b.dataset.target=s.id; b.innerHTML=`<span class="dot"></span><span>${s.label}</span>`; b.onclick=()=>openSection(s.id); nav.appendChild(b);});}
-    function renderPuzzle(){const grid=document.getElementById('puzzleGrid'); grid.innerHTML=''; pieces.forEach(p=>{const b=document.createElement('button'); b.className='piece'+(visited.has(p.id)?' visited':''); b.dataset.color=p.color; b.title=p.title; b.innerHTML=`<div class="nr">${p.nr}</div><div class="icon">${p.icon}</div><h3>${p.title}</h3><p>${p.text}</p>`; b.onclick=()=>showPiece(p); grid.appendChild(b);});}
-    function showPiece(p){document.getElementById('modalNr').textContent='Puzzleteil '+p.nr; document.getElementById('modalTitle').textContent=p.title; document.getElementById('modalText').textContent=p.text; const blocks=document.getElementById('modalBlocks'); blocks.innerHTML=`<div class="mini"><h4>Was wird sichtbar?</h4><ul>${p.evidence.map(e=>`<li>${e}</li>`).join('')}</ul></div><div class="mini"><h4>Aktion</h4><p>Dieses Kapitel öffnen und danach im Bericht weiterarbeiten.</p></div>`; document.getElementById('modalOpenBtn').onclick=()=>{closeModal(); openSection(p.id);}; document.getElementById('modal').showModal();}
+    function renderNav(){
+      const nav=document.getElementById('sideNav'); nav.innerHTML='';
+      navItems.forEach(item=>{const b=document.createElement('button'); b.dataset.target=item.id; b.innerHTML=`<span class="ico">${item.icon}</span><span>${item.label}</span>`; b.onclick=()=>openSection(item.id); nav.appendChild(b);});
+      document.querySelector('.nav button').classList.add('active');
+    }
+    function openSection(id){
+      document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+      document.getElementById(id)?.classList.add('active');
+      document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active', b.dataset.target===id));
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+    function renderPuzzle(){
+      const grid=document.getElementById('puzzleGrid'); grid.innerHTML='';
+      pieces.forEach(p=>{const b=document.createElement('button'); b.className=`piece ${p.color}`; b.title=p.title; b.innerHTML=`<div class="nr">${p.nr}</div><div class="icon">${p.icon}</div><h3>${p.title}</h3><p>${p.text.split('.')[0]}.</p>`; b.onclick=()=>showPiece(p); grid.appendChild(b);});
+    }
+    function showPiece(p){
+      document.getElementById('modalNr').textContent='Puzzleteil '+p.nr;
+      document.getElementById('modalTitle').textContent=p.title;
+      document.getElementById('modalText').textContent=p.text;
+      document.getElementById('modalBlocks').innerHTML=`<div class="mini"><h4>Konkrete Handlungen</h4><ul>${p.actions.map(x=>`<li>${x}</li>`).join('')}</ul></div><div class="mini"><h4>Passende Beweisstücke</h4><ul>${p.evidence.map(x=>`<li>${x}</li>`).join('')}</ul></div>`;
+      document.getElementById('evidenceBtn').onclick=()=>{closeModal(); openSection('galerie');};
+      document.getElementById('modal').showModal();
+    }
     function closeModal(){document.getElementById('modal').close();}
-    function renderEvidence(){const list=document.getElementById('evidenceList'); list.innerHTML=''; evidence.forEach(e=>{const a=document.createElement('a'); a.href=e[3]; a.onclick=(ev)=>{ev.preventDefault(); alert('Platzhalter für Beweisstück '+e[0]+':\n\n'+e[1]+'\n\nLege deine echte Datei später unter folgendem Pfad ab:\n'+e[3]);}; a.innerHTML=`<span><strong>${e[0]} · ${e[1]}</strong><small>${e[2]}</small></span><span>öffnen</span>`; list.appendChild(a);});}
+    function renderEvidence(){
+      const list=document.getElementById('evidenceList'); list.innerHTML='';
+      evidence.forEach(e=>{const row=document.createElement('div'); row.className='item'; row.innerHTML=`<div class="n">${e[0]}</div><div><strong>${e[1]}</strong><small>${e[2]}</small></div><a href="${e[3]}" onclick="event.preventDefault(); alert('Platzhalter: Lege die echte Datei später hier ab: ${e[3]}')">öffnen</a>`; list.appendChild(row);});
+    }
     renderNav(); renderPuzzle(); renderEvidence();
   </script>
 </body>
