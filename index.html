@@ -144,7 +144,7 @@
         <div class="sectionhead"><div><h2>Feedback</h2><p>Das Formular ist für GitHub Pages vorbereitet. Es nutzt FormSubmit, damit auch eine statische HTML-Seite eine E-Mail auslösen kann.</p></div></div>
         <div class="grid">
           <div class="card span-7">
-            <form action="https://formsubmit.co/2e09bea9d85868b87825b514aaeca02f" method="POST">
+            <form action="https://formsubmit.co/despina.papas@gmail.com" method="POST">
               <input type="hidden" name="_subject" value="Feedback zum Praktikumsbericht WebApp">
               <input type="hidden" name="_template" value="table">
               <input type="hidden" name="_captcha" value="false">
@@ -181,7 +181,7 @@
       {id:'feedback', label:'Feedback geben', icon:'✉️'}
     ];
     const pieces = [
-      {nr:'01', title:'Methodenvielfalt beim Einstieg', icon:'✨', color:'teal', text:'Bis Ende Januar 2026 setze ich in mindestens jeder zweiten Informatiklektion einen methodisch abwechslungsreichen Einstieg ein, um Vorwissen zu aktivieren und Interesse zu wecken.', actions:['Lernvideo, Quizfrage oder Rätsel einsetzen','Kurzprotokoll mit Reflexion führen','Vorwissen bereits am Anfang sichtbar machen'], evidence:['Diagnose-Einstieg','Aktivierender Einstieg','Reflexionsprotokoll']},
+      {nr:'01', title:'Methodenvielfalt beim Einstieg', icon:'✨', color:'teal', text:'Bis Ende Januar 2026 setze ich in mindestens jeder zweiten Informatiklektion einen methodisch abwechslungsreichen Einstieg ein, um Vorwissen zu aktivieren und Interesse zu wecken.', actions:['Lernvideo, Quizfrage oder Rätsel einsetzen','Vorwissen bereits am Anfang sichtbar machen'], evidence:['<a href="/Inhalte/01_Vorwissen_beim%20Einstieg%20abfangen.pdf" target="_blank" rel="noopener">Diagnose-Einstieg</a>','<a href="/Inhalte/01_Methodenvielfalt_Einstieg%20mit%20R%C3%A4tsel.pdf" target="_blank" rel="noopener">Aktivierender Einstieg</a>']},
       {nr:'02', title:'Unterschiedliche Lernstile', icon:'🎧', color:'blue', text:'Mindestens zwei Unterrichtseinheiten enthalten visuelle, auditive und praktisch-handlungsorientierte Aufgaben.', actions:['visuelle Schritt-für-Schritt-Anleitung','kurzes Erklärvideo oder mündliche Erklärung','praktische Aufgaben','Umfrage zur Wirksamkeit des Lernweges'], evidence:['<a href="Inhalte/02_Drei_Lernzugaenge_RUNDEN.pdf" target="_blank" rel="noopener">Drei Lernzugänge</a>','<a href="Inhalte/02_Umfrage_Wirksamkeit_des_Lernweges.pdf" target="_blank" rel="noopener">Umfrage zur Wirksamkeit des Lernweges</a>']},
       {nr:'03', title:'Differenzierte Aufgaben', icon:'▦', color:'amber', text:'Ich überarbeite mindestens zwei OneNote-Aufträge mit drei Schwierigkeitsstufen: einfach, mittel und anspruchsvoll.', actions:['Basisaufgabe mit klaren Schritten','Standardaufgabe zur Anwendung','Challenge-Aufgabe für Transfer und Vertiefung'], evidence:['Differenzierter OneNote-Auftrag','Hilfekarten','Schülerprodukte']},
       {nr:'04', title:'Sozialformen bewusst einsetzen', icon:'↔', color:'green', text:'Ich setze Einzel- und Partnerarbeit bewusst ein, um Kooperation, Austausch und selbstständiges Arbeiten zu fördern.', actions:['Sozialform passend zur Aufgabe bestimmen','Nutzung beobachten','Wirksamkeit über Kurzumfrage prüfen'], evidence:['Beobachtungsprotokoll Sozialformen','Umfrage Sozialformen']},
@@ -191,8 +191,8 @@
       {nr:'08', title:'Selbstwirksamkeit stärken', icon:'◎', color:'slate', text:'Ab Januar 2026 füllen die Lernenden am Ende jeder Lektion einen kurzen Reflexionsbogen aus. Ich werte diese monatlich aus und bespreche Ergebnisse individuell.', actions:['Reflexionsbogen einsetzen','monatlich auswerten','Ergebnisse mit Lernenden besprechen','Folgeplanung anpassen'], evidence:['Reflexionsbogen','Monatsauswertung','Anpassungen der Planung']}
     ];
     const evidence = [
-      ['01','Diagnose-Einstieg Excel-Funktionen','Quiz oder Forms-Abfrage zu SUMME, MITTELWERT, MIN, MAX, ANZAHL, ANZAHL2, WENN.','beweise/01_diagnose_einstieg.pdf'],
-      ['02','Aktivierender Einstieg','Rätsel oder Fehlersuche zu relativen und absoluten Bezügen.','beweise/02_aktivierender_einstieg.pdf'],
+      ['01','Diagnose-Einstieg','Vorwissen beim Einstieg sichtbar machen.','/Inhalte/01_Vorwissen_beim%20Einstieg%20abfangen.pdf'],
+      ['02','Aktivierender Einstieg','Einstieg mit Rätsel zum realen Seriendruck-Fall.','/Inhalte/01_Methodenvielfalt_Einstieg%20mit%20R%C3%A4tsel.pdf'],
       ['03','Reflexionsprotokoll Einstieg','Kurznotizen zur Wirkung jedes Einstiegs.','beweise/03_reflexionsprotokoll_einstieg.pdf'],
       ['04','Drei Lernzugänge','Visuelle Anleitung, kurzes Erklärvideo und praktische Excel-Aufgabe.','beweise/04_lernzugaenge.pdf'],
       ['05','Umfrage Lernformen','Rückmeldung, welche Lernform den Lernenden geholfen hat.','beweise/05_umfrage_lernformen.pdf'],
@@ -232,7 +232,7 @@
     function closeModal(){document.getElementById('modal').close();}
     function renderEvidence(){
       const list=document.getElementById('evidenceList'); list.innerHTML='';
-      evidence.forEach(e=>{const row=document.createElement('div'); row.className='item'; row.innerHTML=`<div class="n">${e[0]}</div><div><strong>${e[1]}</strong><small>${e[2]}</small></div><a href="${e[3]}" onclick="event.preventDefault(); alert('Platzhalter: Lege die echte Datei später hier ab: ${e[3]}')">öffnen</a>`; list.appendChild(row);});
+      evidence.forEach(e=>{const row=document.createElement('div'); row.className='item'; const isReal=e[3].startsWith('/Inhalte/'); const link=isReal ? `<a href="${e[3]}" target="_blank" rel="noopener">öffnen</a>` : `<a href="${e[3]}" onclick="event.preventDefault(); alert('Platzhalter: Lege die echte Datei später hier ab: ${e[3]}')">öffnen</a>`; row.innerHTML=`<div class="n">${e[0]}</div><div><strong>${e[1]}</strong><small>${e[2]}</small></div>${link}`; list.appendChild(row);});
     }
     renderNav(); renderPuzzle(); renderEvidence();
   </script>
