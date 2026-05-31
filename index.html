@@ -42,8 +42,8 @@
     .topbar{display:grid;grid-template-columns:1fr;gap:10px;align-items:start;margin-bottom:20px}
     .titlebox{background:rgba(255,255,255,.72);border:1px solid rgba(229,231,235,.85);border-radius:26px;padding:22px 24px;box-shadow:0 12px 35px rgba(16,24,40,.05)}
     .eyebrow{font-size:.76rem;text-transform:uppercase;letter-spacing:.16em;font-weight:850;color:var(--brand);margin-bottom:8px}
-    h1{margin:0;font-size:clamp(1.7rem,3vw,2.8rem);line-height:1.02;letter-spacing:-.055em;white-space:nowrap}
-    .lead{margin:12px 0 0;max-width:760px;color:#344054;font-size:1.04rem;text-align:justify}
+    h1{margin:0;max-width:none;text-align:left;font-size:clamp(1.9rem,3vw,2.6rem);line-height:1.08;letter-spacing:-.045em;white-space:normal}
+    .lead{margin:14px 0 0;max-width:none;color:#344054;font-size:1.04rem;text-align:justify}
     .facts{min-width:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;opacity:.78;font-size:.82rem}
     .fact{background:rgba(255,255,255,.56);border:1px solid rgba(229,231,235,.8);border-radius:15px;padding:9px 11px;color:#475467}
     .fact strong{display:block;color:#111827;font-size:.84rem}.fact span{display:block;line-height:1.25}
@@ -65,6 +65,7 @@
     dialog{border:0;border-radius:28px;padding:0;width:min(760px,92vw);box-shadow:0 35px 100px rgba(16,24,40,.28)}dialog::backdrop{background:rgba(16,24,40,.36);backdrop-filter:blur(4px)}.modal{padding:26px}.modaltop{display:flex;justify-content:space-between;gap:16px;align-items:start}.close{border:0;background:#f1f5f9;border-radius:14px;width:40px;height:40px;font-size:1.5rem;cursor:pointer}.modal h2{margin:0;font-size:2rem;letter-spacing:-.04em}.modalgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}.mini{background:#f8fafc;border:1px solid var(--line);border-radius:18px;padding:16px}.mini h4{margin:0 0 8px}.mini ul{margin:0;padding-left:18px;color:#344054}.modalactions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 14px;font-weight:850;cursor:pointer}.btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
     form{display:grid;gap:14px}.field{display:grid;gap:6px}label{font-weight:850;color:#344054}input,select,textarea{width:100%;border:1px solid #d0d5dd;border-radius:14px;padding:12px 13px;font:inherit;background:#fff}textarea{min-height:130px;resize:vertical}.submit{border:0;border-radius:16px;background:var(--brand);color:white;padding:13px 18px;font-weight:950;cursor:pointer}.fine{font-size:.84rem;color:var(--muted)}
     .footer{margin-top:36px;color:var(--muted);font-size:.88rem;border-top:1px solid var(--line);padding-top:18px}
+    .lead-meta{display:block;margin-bottom:6px}.lead-meta em{display:block;font-style:italic}.lead-desc{display:block;margin-top:6px;text-align:justify}@media(max-width:720px){.lead-meta{display:block}.lead-meta em{display:block}}
     @media(max-width:980px){.app{grid-template-columns:1fr}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.nav{grid-template-columns:repeat(2,minmax(0,1fr))}main{padding:20px}.topbar{grid-template-columns:1fr}.facts{grid-template-columns:repeat(2,minmax(0,1fr));min-width:0}.puzzle{grid-template-columns:repeat(2,minmax(0,1fr))}.grid{grid-template-columns:1fr}.span-4,.span-5,.span-6,.span-7,.span-8,.span-12{grid-column:span 1}.flow{grid-template-columns:repeat(2,1fr)}.modalgrid{grid-template-columns:1fr}}
     @media(max-width:560px){.nav{grid-template-columns:1fr}.facts{grid-template-columns:1fr}.puzzle{grid-template-columns:1fr}.sectionhead{display:block}}
   </style>
@@ -84,7 +85,7 @@
       <header class="topbar">
         <div class="titlebox">
           <h1>Praktikumsbericht Despoina Papadopoulou</h1>
-          <p class="lead"><em>25H-BFS-2 Dipl. Berufsfachschullehrer:in im Hauptberuf</em><br><em>Zuständiger Dozent: Gerhard Friedl</em><br>Diese Website soll die Entwicklung meiner Handlungskompetenz als Lehrperson im Rahmen meines Praktikums im 2. Studienjahr veranschaulichen.</p>
+          <p class="lead"><span class="lead-meta"><em>25H-BFS-2 Dipl. Berufsfachschullehrer:in im Hauptberuf</em><em>Zuständiger Dozent: Gerhard Friedl</em></span><span class="lead-desc">Diese Website soll die Entwicklung meiner Handlungskompetenz als Lehrperson im Rahmen meines Praktikums im 2. Studienjahr veranschaulichen.</span></p>
         </div>
         <div class="facts" aria-label="Eckdaten">
           <div class="fact"><strong>Arbeitsstelle</strong><span>Fach- und Wirtschaftsmittelschulzentrum Luzern</span></div>
@@ -139,9 +140,9 @@
       </section>
 
       <section id="feedback" class="section">
-        <div class="sectionhead"><div><h2>Feedback</h2><p>Das Formular ist für GitHub Pages vorbereitet. Es nutzt FormSubmit, damit auch eine statische HTML-Seite eine E-Mail auslösen kann.</p></div></div>
+        <div class="sectionhead"><div><h2>Feedback</h2><p>Mit dieser WebApp möchte ich meine Entwicklung während des Praktikums sichtbar machen. Ich freue mich über eine Rückmeldung dazu, welche Aspekte besonders nachvollziehbar sind und wo noch Fragen oder Entwicklungsmöglichkeiten sichtbar werden.</p></div></div>
         <div class="grid">
-          <div class="card span-7">
+          <div class="card span-12">
             <form action="https://formsubmit.co/despina.papas@gmail.com" method="POST">
               <input type="hidden" name="_subject" value="Feedback zum Praktikumsbericht WebApp">
               <input type="hidden" name="_template" value="table">
@@ -153,7 +154,6 @@
               <button class="submit" type="submit">Feedback per E-Mail senden</button>
             </form>
           </div>
-          <div class="card span-5"><h3>Direkte Alternative</h3><p>Falls der Formular-Dienst blockiert wird, kann Feedback auch direkt per E-Mail geschickt werden.</p><div class="tags"><a class="tag good" href="mailto:despina.papas@gmail.com?subject=Feedback%20zum%20Praktikumsbericht">E-Mail öffnen</a></div></div>
         </div>
       </section>
 
@@ -184,9 +184,9 @@
       {nr:'03', title:'Differenzierte Aufgaben', icon:'▦', color:'amber', text:'Ich überarbeite mindestens zwei OneNote-Aufträge mit drei Schwierigkeitsstufen: einfach, mittel und anspruchsvoll.', actions:['Basisaufgabe mit klaren Schritten','Standardaufgabe zur Anwendung','Challenge-Aufgabe für Transfer und Vertiefung'], evidence:['<a href="Inhalte/03_Differenzierte_Auftragsniveaus.pdf" target="_blank" rel="noopener">Differenzierter OneNote-Auftrag</a>']},
       {nr:'04', title:'Sozialformen bewusst einsetzen', icon:'↔', color:'green', text:'Ich setze Einzel- und Partnerarbeit bewusst ein, um Kooperation, Austausch und selbstständiges Arbeiten zu fördern.', actions:['Sozialform passend zur Aufgabe bestimmen','Nutzung beobachten / Wirksamkeit prüfen'], evidence:['Bei fehlender Motivation scheint der Wechsel von Einzel- zu Partnerarbeit die Situation zu verbessern.','Bei vordefinierten Arbeitspaaren gibt es am Anfang oft Einwände. Gleichzeitig entstehen dadurch mehr soziale Kontakte, und das Arbeitsklima in der Klasse wird kollegialer.']},
       {nr:'05', title:'Coach-Rolle übernehmen', icon:'💬', color:'rose', text:'Ich reduziere Frontalunterricht auf höchstens 10 Minuten pro Lektion und begleite Lernende mindestens 20 Minuten individuell und gezielt.', actions:['Inputphasen bewusst begrenzen','Coaching-Fragen stellen','Lernende während der Arbeitsphase gezielt begleiten','Über das Coach-Verhalten reflektieren'], evidence:['Ich habe es den Lernenden in Auftrag gegeben, meine Input-Zeiten zu timen. Das hat sehr gut funktioniert und zum positiven Klassenklima beigetragen. Die Lernenden hatten danach mehr Freude, mit der eigentlichen Auftragsarbeit zu starten.','Den Übergang in die Coaching-Rolle finde ich auch anschliessend an das Praktikum manchmal herausfordernd. Ich muss immer noch sehr aufpassen, dass ich nicht in die traditionelle Lehrerrolle zurückrutsche.']},
-      {nr:'06', title:'Selbstständigkeit fördern', icon:'🪜', color:'violet', text:'Schnelle Lernende erhalten in jeder Unterrichtseinheit Wahlmöglichkeiten, um ihre Kompetenzen sinnvoll zu erweitern.', actions:['Zusatzaufgabe anbieten','Tutor-Rolle ermöglichen','Erstellung von Lernhilfen oder Lösungsvideos anbieten'], evidence:['Wahlboard','Zusatzaufgabe','Lernhilfe']},
-      {nr:'07', title:'Peer-Learning ermöglichen', icon:'🤝', color:'mint', text:'Fortgeschrittene Lernende unterstützen Lernende mit Unterstützungsbedarf. Dadurch werden Kompetenzen sichtbar und die Lerngruppe wird entlastet.', actions:['Tutor-Rolle klar beschreiben','Peer-Unterstützung beobachten','Nutzung der Lernformen protokollieren'], evidence:['Peer-Learning-Protokoll','Tutor-Reflexion']},
-      {nr:'08', title:'Selbstwirksamkeit stärken', icon:'◎', color:'slate', text:'Ab Januar 2026 füllen die Lernenden am Ende jeder Lektion einen kurzen Reflexionsbogen aus. Ich werte diese monatlich aus und bespreche Ergebnisse individuell.', actions:['Reflexionsbogen einsetzen','monatlich auswerten','Ergebnisse mit Lernenden besprechen','Folgeplanung anpassen'], evidence:['Reflexionsbogen','Monatsauswertung','Anpassungen der Planung']}
+      {nr:'06', title:'Selbstständigkeit fördern', icon:'🪜', color:'violet', text:'Schnelle Lernende erhalten in jeder Unterrichtseinheit Wahlmöglichkeiten, um ihre Kompetenzen sinnvoll zu erweitern.', actions:['Zusatzaufgabe anbieten','Tutor-Rolle ermöglichen','Erstellung von Lernhilfen oder Lösungsvideos anbieten'], evidence:['Ich habe mehrmals festgestellt, dass Zusatzaufgaben bei schnellen Lernenden eher als Strafe statt als Förderung ankommen. Dies zeigte sich auch dann, wenn ich für Zusatzaufgaben „coole“ Namen gesucht habe.','Gegenüber der Tutor-Rolle waren die schnelleren Lernenden am Anfang skeptisch. Sobald ich die Tutor-Rolle jedoch transparent in der Klasse eingeführt hatte, kam sie zunehmend in Gang. Schnelle Lernende machten oft von sich aus Runden in der Klasse und boten Hilfe an. Dies hatte positive Auswirkungen auf mehreren Ebenen: mehr Selbstbewusstsein bei den Tutorinnen und Tutoren sowie mehr soziale Kontakte innerhalb der Klasse.','Introvertierte Lernende bevorzugten zunächst das Angebot, Lösungsvideos zu erstellen. Für einige blieb jedoch die Hürde bestehen, beim Aufnehmen auch die eigene Stimme zu verwenden. Diese Lernenden übernahmen später meistens doch lieber die Tutor-Rolle.']},
+      {nr:'07', title:'Peer-Learning ermöglichen', icon:'🤝', color:'mint', text:'Fortgeschrittene Lernende unterstützen Lernende mit Unterstützungsbedarf. Dadurch werden Kompetenzen sichtbar und die Lerngruppe wird entlastet.', actions:['Tutor-Rolle klar beschreiben','Peer-Unterstützung beobachten und bei Bedarf intervenieren'], evidence:['Sobald die Tutor-Rolle in der Klasse ein Begriff war, versuchten einige Lernende, sie auszunutzen: Ohne eigene Recherche riefen sie sofort die Tutorinnen und Tutoren. Diese waren bald frustriert, weil sie merkten, dass sie nicht Verständnislücken schlossen, sondern Arbeit für andere übernahmen. Ich habe deshalb folgende Reihenfolge eingeführt: Selbstrecherche → Peer, z. B. Pultnachbar/in → Tutor/in → Lehrperson.','Ich habe oft beobachtet, wie gut es in der Klasse ankommt, wenn der Austausch mit den Pultnachbarinnen und Pultnachbarn erlaubt ist. Deshalb ist er inzwischen in meinem Unterricht grundsätzlich erlaubt. Die Lernenden haben häufig mehr Freude daran, sich etwas von einem Peer erklären zu lassen, weil dies auf Augenhöhe, in einer gemeinsamen Sprache und ohne Generation-Gap geschieht. Die dadurch für mich gewonnene Zeit kann ich gezielt für Beobachtung und Lernbegleitung einsetzen.']},
+      {nr:'08', title:'Selbstwirksamkeit stärken', icon:'◎', color:'slate', text:'Ab Januar 2026 füllen die Lernenden am Ende jeder Lektion einen kurzen Reflexionsbogen aus. Ich werte diese monatlich aus und bespreche Ergebnisse individuell.', actions:['Reflexionsbogen einsetzen','monatlich auswerten','Ergebnisse mit Lernenden besprechen','Folgeplanung anpassen'], evidence:['Ich habe die monatliche Auswertung der Reflexionsbögen mit Forms leider nicht konsequent geführt. Das gehört nun mit hoher Priorität zu meinen nächsten Schritten in Richtung Weiterentwicklung.','Bei jedem Auftrag stehen zuunterst Reflexionsfragen. Ich gebe den Lernenden jeweils Bescheid, wenn es Zeit ist, diese Fragen zu beantworten. Ich habe allerdings immer wieder beobachtet, dass die Lernenden kaum Wert darauf legen. Wenn ich sie persönlich zu einem Gespräch darüber einlade, bringen sie fast immer zum Ausdruck, dass sie genau wissen, was sie machen müssten, aber keine Zeit dafür haben, da Informatik für sie nicht das wichtigste Fach ist. Wenn ich ehrlich bin, habe ich bis dato noch keine klare Idee, wie ich die Lernenden stärker zur Reflexion animieren kann.']}
     ];
     const evidence = [
       ['Ziel 1: Methodenvielfalt beim Einstieg','Diagnose-Einstieg','01_Vorwissen_beim_Einstieg_abfangen.pdf','Inhalte/01_Vorwissen_beim_Einstieg_abfangen.pdf'],
@@ -214,10 +214,10 @@
       document.getElementById('modalNr').textContent='Fokusbereich '+p.nr;
       document.getElementById('modalTitle').textContent=p.title;
       document.getElementById('modalText').textContent=p.text;
-      const secondBlockTitle = p.nr === '04' ? 'Beobachtungen' : (p.nr === '05' ? 'Umsetzung und Erfahrungen' : 'Passende Inhalte');
+      const secondBlockTitle = p.nr === '04' ? 'Beobachtungen' : ((p.nr === '05' || p.nr === '06' || p.nr === '07' || p.nr === '08') ? (p.nr === '05' ? 'Umsetzung und Erfahrungen' : 'Umsetzung / Beobachtungen') : 'Passende Inhalte');
       document.getElementById('modalBlocks').innerHTML=`<div class="mini"><h4>Konkrete Handlungen</h4><ul>${p.actions.map(x=>`<li>${x}</li>`).join('')}</ul></div><div class="mini"><h4>${secondBlockTitle}</h4><ul>${p.evidence.map(x=>`<li>${x}</li>`).join('')}</ul></div>`;
       const evidenceBtn = document.getElementById('evidenceBtn');
-      if (p.nr === '04' || p.nr === '05') {
+      if (p.nr === '04' || p.nr === '05' || p.nr === '06' || p.nr === '07' || p.nr === '08') {
         evidenceBtn.style.display = 'none';
         evidenceBtn.onclick = null;
       } else {
